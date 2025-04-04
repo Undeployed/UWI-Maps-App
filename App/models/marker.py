@@ -1,0 +1,31 @@
+from App.database import db
+
+class Marker(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    campus_id = db.Column(db.Integer, db.ForeignKey('campus.id'), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.Text, nullable=True)
+    latitude = db.Column(db.Float, nullable=False)
+    longitude = db.Column(db.Float, nullable=False)
+
+    marker_updates = db.relationship('MarkerUpdate', backref='marker', lazy=True, cascade="all, delete-orphan")
+    images = db.relationship('Image', backref='marker', lazy=True, cascade="all, delete-orphan")
+    marker_categories = db.relationship('MarkerCategory', backref='marker', lazy=True, cascade="all, delete-orphan")
+
+    def __init__(self, name, campus_id, description, latitude, longitude):
+        self.campus_id= campus_id
+        self.name = name
+        self.description = description
+        self.latitude = latitude
+        self.longitude = longitude
+
+
+    def get_json(self):
+        return {
+            'id': self.id,
+            'campus_id': self.campus_id,
+            'name': self.name,
+            'description': self.description,
+            'latitude': self.latitude,
+            'longitude': self.longitude
+        }
