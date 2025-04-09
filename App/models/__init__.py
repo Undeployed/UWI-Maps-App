@@ -1,5 +1,4 @@
-from .admin import *
-from .admin import *
+from .user import *
 from .campus import *
 from .category import *
 from .image import *
