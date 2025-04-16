@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/homepage.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <title>UWI Map</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="left">
+                <h2>UWI MAP</h2>
+            </div>
+            <div class="right">
+                <input type="text" placeholder="Username" />
+                <input type="password" placeholder="Password" />
+                <button>Login</button>
+            </div>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search" />
+            <button>Search</button>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <h3>Countries</h3>
+        <ul>
+            <li><a onclick="selectCampus('mona')">Jamaica</a></li>
+            <li><a onclick="selectCampus('st_augustine')">Trinidad & Tobago</a></li>
+            <li><a onclick="selectCampus('cave_hill')">Barbados</a></li>
+            <li><a onclick="selectCampus('five_islands')">Antigua</a></li>
+            <li><a onclick="selectCampus(null)">Show All</a></li>
+        </ul>
+    </div>
+
+    <div class="sidebar-right">
+        <h3 id="facility-title">Facilities</h3>
+        <ul id="facility-list">
+            <li>Select a campus</li>
+        </ul>
+    </div>
+
+    <div id="map"></div>
+
+    <script>
+        const map = L.map('map').setView([13.5, -61], 6);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        const campuses = {
+            mona: {
+                name: 'UWI Mona (Jamaica)',
+                coords: [18.0056, -76.7461],
+                facilities: ['Faculty of Science & Tech', 'Library', 'Medical Sciences', 'Engineering']
+            },
+            st_augustine: {
+                name: 'UWI St. Augustine (Trinidad)',
+                coords: [10.6410, -61.3991],
+                facilities: ['Engineering Faculty', 'Medical Sciences', 'Humanities', 'Library']
+            },
+            cave_hill: {
+                name: 'UWI Cave Hill (Barbados)',
+                coords: [13.1196, -59.6327],
+                facilities: ['Law Faculty', 'Business School', 'Medical Sciences', 'Library']
+            },
+            five_islands: {
+                name: 'UWI Five Islands (Antigua)',
+                coords: [17.1170, -61.8885],
+                facilities: ['Teaching Block A', 'Teaching Block B', 'Admin Office', 'Library']
+            }
+        };
+
+        let currentMarkers = [];
+        let facilityMarkerMap = {}; // New map to track facility name to marker
+
+        function clearMarkers() {
+            currentMarkers.forEach(marker => map.removeLayer(marker));
+            currentMarkers = [];
+            facilityMarkerMap = {};
+        }
+
+        function selectCampus(key) {
+            clearMarkers();
+            const facilityList = document.getElementById('facility-list');
+            facilityList.innerHTML = '';
+
+            if (!key) {
+                map.setView([13.5, -61], 6);
+                Object.entries(campuses).forEach(([id, campus]) => {
+                    const marker = L.marker(campus.coords).addTo(map).bindPopup(campus.name);
+                    currentMarkers.push(marker);
+                });
+                document.getElementById('facility-title').innerText = 'Facilities';
+                facilityList.innerHTML = '<li>Select a campus</li>';
+                return;
+            }
+
+            const campus = campuses[key];
+            map.setView(campus.coords, 16);
+            campus.facilities.forEach(facility => {
+                const offset = [
+                    (Math.random() - 0.5) * 0.005,
+                    (Math.random() - 0.5) * 0.005
+                ];
+                const facilityCoords = [
+                    campus.coords[0] + offset[0],
+                    campus.coords[1] + offset[1]
+                ];
+                const marker = L.marker(facilityCoords).addTo(map).bindPopup(facility);
+                currentMarkers.push(marker);
+                facilityMarkerMap[facility] = marker;
+
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="#">${facility}</a>`;
+                li.onclick = () => {
+                    map.setView(facilityCoords, 17);
+                    marker.openPopup();
+                };
+                facilityList.appendChild(li);
+            });
+
+            document.getElementById('facility-title').innerText = campus.name;
+        }
+
+        // Default view
+        selectCampus(null);
+    </script>
+</body>
+</html>
