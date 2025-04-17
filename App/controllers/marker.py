@@ -1,12 +1,16 @@
 from App.models import Marker
-from . import add_marker_update
 from App.database import db
 from sqlalchemy.exc import SQLAlchemyError
 
 def create_marker(user_id, name, campus_id, description, latitude, longitude):
+    from  App.controllers import add_marker_update
+
     try:
         marker = Marker(name=name, campus_id=campus_id, description=description, latitude=latitude, longitude=longitude)
         db.session.add(marker)
+        db.session.commit()
+
+        # Add a marker update on creation
         add_marker_update(user_id=user_id, 
                           marker_id=marker.id,
                           description=f'Created new marker: "{marker.name}"'
@@ -34,7 +38,7 @@ def update_marker(marker_id, data):
         marker.campus_id = data.get('campus_id', marker.campus_id)
         marker.description = data.get('description', marker.description)
         marker.latitude = data.get('latitude', marker.latitude)
-        marker.lonitude = data.get('longitude', marker.longitude)
+        marker.longitude = data.get('longitude', marker.longitude)
         db.session.commit()
         return marker
     except SQLAlchemyError as e:
