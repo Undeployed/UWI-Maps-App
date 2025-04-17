@@ -3,5 +3,5 @@ from .campus import *
 from .category import *
 from .image import *
 from .marker import *
-from .markercategory import *
-from .markerupdate import *
+from .marker_category import *
+from .marker_update import *

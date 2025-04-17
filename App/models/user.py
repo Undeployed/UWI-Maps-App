@@ -8,10 +8,10 @@ class User(db.Model):
     role = db.Column(db.String(20), default='admin', nullable=False)
 
 
-    def __init__(self, username, password,role='admin'):
+    def __init__(self, username, password, role='admin'):
         self.username = username
-        self.set_password(password)
         self.role = role
+        self.set_password(password)
 
     def get_json(self):
         return{
