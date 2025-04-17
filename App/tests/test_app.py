@@ -29,7 +29,7 @@ class UserUnitTests(unittest.TestCase):
     def test_get_json(self):
         user = User("bob", "bobpass")
         user_json = user.get_json()
-        self.assertDictEqual(user_json, {"id":None, "username":"bob"})
+        self.assertDictEqual(user_json, {"id":None, "username":"bob", "role":"admin"})
     
     def test_hashed_password(self):
         password = "mypass"
@@ -68,11 +68,16 @@ class UsersIntegrationTests(unittest.TestCase):
 
     def test_get_all_users_json(self):
         users_json = get_all_users_json()
-        self.assertListEqual([{"id":1, "username":"bob"}, {"id":2, "username":"rick"}], users_json)
+        self.assertListEqual([
+            {"id":1, "username":"bob", "role": "admin"}, 
+            {"id":2, "username":"rick", "role":"admin"}
+            ], 
+            users_json
+        )
 
     # Tests data changes in the database
     def test_update_user(self):
-        update_user(1, "ronnie")
+        update_user(1, {"username": "ronnie"})
         user = get_user(1)
         assert user.username == "ronnie"
         

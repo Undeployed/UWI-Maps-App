@@ -10,7 +10,7 @@ class Marker(db.Model):
 
     marker_updates = db.relationship('MarkerUpdate', backref='marker', lazy=True, cascade="all, delete-orphan")
     images = db.relationship('Image', backref='marker', lazy=True, cascade="all, delete-orphan")
-    marker_categories = db.relationship('MarkerCategory', backref='marker', lazy=True, cascade="all, delete-orphan")
+    categories = db.relationship('MarkerCategory', backref='marker', lazy=True, cascade="all, delete-orphan")
 
     def __init__(self, name, campus_id, description, latitude, longitude):
         self.campus_id= campus_id
@@ -18,7 +18,6 @@ class Marker(db.Model):
         self.description = description
         self.latitude = latitude
         self.longitude = longitude
-
 
     def get_json(self):
         return {
@@ -29,3 +28,6 @@ class Marker(db.Model):
             'latitude': self.latitude,
             'longitude': self.longitude
         }
+    
+    def __repr__(self):
+        return f"<Marker {self.id} - {self.name} @ ({self.latitude}, {self.longitude})>"

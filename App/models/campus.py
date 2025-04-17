@@ -15,8 +15,6 @@ class Campus(db.Model):
         self.sw_bound = sw_bound
         self.ne_bound = ne_bound
 
-
-
     def get_json(self):
         return {
             'id': self.id,
@@ -25,3 +23,6 @@ class Campus(db.Model):
             'sw_bound': self.sw_bound,
             'ne_boundary': self.ne_boundary
         }
+
+    def __repr__(self):
+        return f"<Campus {self.id} - {self.name}>"
