@@ -1,13 +1,140 @@
+<!-- templates/index.html -->
 {% extends "layout.html" %}
-{% block title %}Flask MVC App{% endblock %}
-{% block page %}Flask MVC App{% endblock %}
+{% block title %}UWI Map{% endblock %}
 
-{{ super() }}
+{% block head_links %}
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+<!-- Custom Styles -->
+<link href="{{ url_for('static', filename='styles/filter.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='styles/map.css') }}" rel="stylesheet">
+{% endblock %}
 
 {% block content %}
-    <h1>Flask MVC</h1>
-    {% if is_authenticated %}
-        <p> Welcome {{current_user.username}} </p>
-    {% endif %}
-    <p>This is a boileplate flask application which follows the MVC pattern for structuring the project.</p>
+<div id="map-container">
+    <div id="map"></div>
+
+    <!-- Floating Filter Panel -->
+    <div class="floating-panel filter-box z-depth-3">
+      <div class="filter-header">
+          <label for="campus-select"><strong>Campus</strong></label>
+          <select id="campus-select" class="browser-default" onchange="redirectToCampus(this)">
+            {% for campus in campuses %}
+              <option value="{{campus.id}}" {% if selected_campus.id == campus.id %}selected{% endif %}>{{campus.name}}</option>
+            {% endfor %}
+          </select>
+      </div>
+
+      <div class="filter-body">
+        <form id="filter-form" method="GET">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h6>Filter</h6>
+            <button type="submit" class="apply-button">Apply</button>
+          </div>
+          
+          <hr class="filter-divider" />
+          
+          <p>
+            <label style="cursor: pointer; color: #007bff;" onclick="unselectAllCategories()">
+              <i class="material-icons" style="vertical-align: middle;">clear_all</i>
+              <span style="margin-left: 5px;">Unselect All</span>
+            </label>
+          </p>
+          {% for category in categories %}
+            <p><label>
+              <input type="checkbox" name="category" value="{{ category.id }}"
+                {% if category.id|string in request.args.getlist('category') %}checked{% endif %} />
+              <span style="color: {{ category.color }}">
+                {{ category.name.capitalize() }}
+              </span>
+            </label></p>
+          {% endfor %}
+        </form>
+      </div>
+    </div>
+
+    <!-- Marker Details -->
+    <div id="marker-info-panel" class="marker-panel z-depth-3">
+        <button id="close-panel">&times;</button>
+        <div id="marker-info-content">
+          <img id="marker-image" src="" alt="Marker image">
+          <div class="marker-details">
+            <h5 id="marker-name">Marker Name</h5>
+            <p id="marker-description">Description goes here.</p>
+            <p><strong>Coordinates:</strong> <span id="marker-coordinates">00.00000, 00.00000</span></p>
+            <p><strong>Category:</strong> <span id="marker-category">General</span></p>
+          </div>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- Inline config -->
+<script> 
+    // Redirect to campus page when a new campus is selected 
+    function redirectToCampus(select) {
+        const campusId = select.value;
+        const params = new URLSearchParams(window.location.search); // Keep existing filters + search
+        window.location.href = `/${campusId}?${params.toString()}`;
+    }
+
+    // unselect all checkboxes
+    function unselectAllCategories() {
+      const checkboxes = document.querySelectorAll('input[name="category"]');
+      checkboxes.forEach(cb => cb.checked = false);
+    }
+
+    // Sending data to the map.js file
+    const selectedCampus = {
+        sw: [{{ selected_campus.sw_lat }}, {{ selected_campus.sw_lng }}],
+        ne: [{{ selected_campus.ne_lat }}, {{ selected_campus.ne_lng }}]
+    };
+
+    const markers = {{ markers | tojson | safe }};
+
+</script>
+
+<!-- Map Script -->
+<script src="{{ url_for('static', filename='scripts/map.js') }}"></script>
+
+<!-- Search Script-->
+<script>
+  // This script serves as a custom redirect of index page given search and filter queries
+  // Why not submit with form?: Because it's 2 separate forms
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchForm = document.getElementById('search-form');
+    const filterForm = document.getElementById('filter-form');
+  
+    function handleCombinedSubmit(e) {
+      e.preventDefault();
+  
+      const query = document.getElementById('search').value;
+      const categories = Array.from(filterForm.querySelectorAll('input[name="category"]:checked'))
+        .map(input => input.value);
+  
+      const params = new URLSearchParams();
+  
+      if (query) {
+        params.set('query', query);
+      }
+  
+      categories.forEach(cat => {
+        params.append('category', cat);
+      });
+  
+      const campusId = {{ selected_campus.id }};  // Get Campus ID
+  
+      window.location.href = `/${campusId}?${params.toString()}`;
+    }
+  
+    searchForm.addEventListener('submit', handleCombinedSubmit);
+    filterForm.addEventListener('submit', handleCombinedSubmit);
+  });
+  
+</script>
 {% endblock %}
