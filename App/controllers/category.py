@@ -1,4 +1,5 @@
-from App.models import Category, MarkerCategory
+import csv
+from App.models import Category
 from App.database import db
 from sqlalchemy.exc import SQLAlchemyError
 
@@ -13,6 +14,23 @@ def create_category(name):
         print("Error creating category:", e)
         return None
     
+def parse_category_csv(file_path):
+    with open(file_path, newline='', encoding='utf8') as csvfile:
+        reader = csv.DictReader(csvfile)
+        categories = []
+        for row in reader:
+            category = Category(name=row['name'], color=row['color'])
+            categories.append(category)
+        
+        try:
+            db.session.add_all(categories)
+            db.session.commit()
+            return True
+        except SQLAlchemyError as e:
+            db.session.rollback()
+            print("Error parsing categories", e)
+            return False
+    
 def get_all_categories():
     return Category.query.all()
 
@@ -21,10 +39,6 @@ def get_category(category_id):
 
 def get_category_by_name(name):
     return Category.query.filter_by(name=name).first()
-
-def get_markers_by_category(category_id):
-    marker_categories = MarkerCategory.query.filter_by(category_id=category_id)
-    return [marker_category.marker for marker_category in marker_categories]
 
 def update_category(category_id, name):
     category = get_category(category_id)
