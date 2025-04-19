@@ -27,13 +27,13 @@
         
             <!-- Center: Search bar -->
             <div class="nav-section center-section">
-                <form action="{{url_for('index_views.index_page', campus_id=selected_campus.id)}}" method="GET" class="search-form">
-                <div class="input-field">
-                    <input id="search" type="search" name="query" placeholder="Search location..." />
+                <form id="search-form" class="search-form" method="GET">
+                  <div class="input-field">
+                    <input id="search" type="search" name="query" placeholder="Search location..." value="{{ search_query or '' }}"/>
                     <button type="submit" class="search-btn" aria-label="Search">
                     <i class="material-icons">search</i>
                     </button>
-                </div>
+                  </div>
                 </form>
             </div>
     

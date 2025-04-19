@@ -26,7 +26,7 @@
       </div>
 
       <div class="filter-body">
-        <form method="GET" action="">
+        <form id="filter-form" method="GET">
           <div style="display: flex; justify-content: space-between; align-items: center;">
             <h6>Filter</h6>
             <button type="submit" class="apply-button">Apply</button>
@@ -34,6 +34,12 @@
           
           <hr class="filter-divider" />
           
+          <p>
+            <label style="cursor: pointer; color: #007bff;" onclick="unselectAllCategories()">
+              <i class="material-icons" style="vertical-align: middle;">clear_all</i>
+              <span style="margin-left: 5px;">Unselect All</span>
+            </label>
+          </p>
           {% for category in categories %}
             <p><label>
               <input type="checkbox" name="category" value="{{ category.id }}"
@@ -73,7 +79,14 @@
     // Redirect to campus page when a new campus is selected 
     function redirectToCampus(select) {
         const campusId = select.value;
-        window.location.href = `/${campusId}`;
+        const params = new URLSearchParams(window.location.search); // Keep existing filters + search
+        window.location.href = `/${campusId}?${params.toString()}`;
+    }
+
+    // unselect all checkboxes
+    function unselectAllCategories() {
+      const checkboxes = document.querySelectorAll('input[name="category"]');
+      checkboxes.forEach(cb => cb.checked = false);
     }
 
     // Sending data to the map.js file
@@ -88,4 +101,40 @@
 
 <!-- Map Script -->
 <script src="{{ url_for('static', filename='scripts/map.js') }}"></script>
+
+<!-- Search Script-->
+<script>
+  // This script serves as a custom redirect of index page given search and filter queries
+  // Why not submit with form?: Because it's 2 separate forms
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchForm = document.getElementById('search-form');
+    const filterForm = document.getElementById('filter-form');
+  
+    function handleCombinedSubmit(e) {
+      e.preventDefault();
+  
+      const query = document.getElementById('search').value;
+      const categories = Array.from(filterForm.querySelectorAll('input[name="category"]:checked'))
+        .map(input => input.value);
+  
+      const params = new URLSearchParams();
+  
+      if (query) {
+        params.set('query', query);
+      }
+  
+      categories.forEach(cat => {
+        params.append('category', cat);
+      });
+  
+      const campusId = {{ selected_campus.id }};  // Get Campus ID
+  
+      window.location.href = `/${campusId}?${params.toString()}`;
+    }
+  
+    searchForm.addEventListener('submit', handleCombinedSubmit);
+    filterForm.addEventListener('submit', handleCombinedSubmit);
+  });
+  
+</script>
 {% endblock %}

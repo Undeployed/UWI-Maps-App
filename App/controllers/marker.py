@@ -24,12 +24,16 @@ def create_marker(user_id, name, campus_id, cateogry_id, description, latitude, 
         return None
 
 def parse_marker_csv(user_id, file_path):
+    from .category import get_category_by_name
+    from .campus import get_campus_by_name
     with open(file_path, newline='', encoding='utf8') as csvfile:
         reader = csv.DictReader(csvfile)
         markers = []
         for row in reader:
+            category = get_category_by_name(row['category'])
+            campus = get_campus_by_name(row['campus'])
             image = row['image'] if row['image'] != "" else "https://placeholder.pics/svg/150"
-            marker = Marker(name=row['name'], campus_id=row['campus_id'], category_id=row['category_id'], description=row['description'], latitude=row['latiutude'], longitude=row['longitude'], image=image)
+            marker = Marker(name=row['name'], campus_id=campus.id, category_id=category.id, description=row['description'], latitude=row['latitude'], longitude=row['longitude'], image=image)
             markers.append(marker)
         
         try:

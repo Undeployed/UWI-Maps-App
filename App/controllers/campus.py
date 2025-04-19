@@ -37,6 +37,9 @@ def get_all_campuses():
 def get_campus(campus_id):
     return Campus.query.get(campus_id)
 
+def get_campus_by_name(name):
+    return Campus.query.filter_by(name=name).first()
+
 def update_campus(campus_id, data):
     campus = get_campus(campus_id)
     if not campus:
