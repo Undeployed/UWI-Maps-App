@@ -17,7 +17,7 @@ class MarkerUpdate(db.Model):
     def get_json(self):
         return {
             'id': self.id,
-            'user_id': self.user_id,
+            'user': self.user.get_json(),
             'marker_id': self.marker_id,
             'date': self.date.isoformat(),
             'description': self.description
