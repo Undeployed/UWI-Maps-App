@@ -8,6 +8,7 @@
 
     <!-- Materialize CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Custom Styles -->
@@ -18,7 +19,7 @@
 
   <body>
     <!-- Navbar -->
-    <header class="floating-nav z-depth-2">
+    <header class="floating-nav z-depth-2" id="nav-bar">
         <div class="nav-content-container">
             <!-- Left: Logo / Title -->
             <div class="nav-section left-section">
@@ -40,8 +41,14 @@
             <!-- Right: Auth -->
             <div class="nav-section right-section">
                 {% if is_authenticated %}
+                    <p class="black-text">{{ user.username.upper() }}</p>
+                    {% if editing %}
+                    <p>&lt;Editing&gt;</p>
+                    {% endif %}
                     <!-- Edit Map Icon Button -->
-                    <a href="/edit-map" class="icon-btn" title="Edit Map">
+                    <a class="icon-btn" title="Edit Map"
+                      {%if editing %}href="{{url_for('index_views.index_page', campus_id=selected_campus.id)}}"
+                      {% else %}href="{{url_for('user_views.edit_page', campus_id=selected_campus.id)}}"{% endif %}>
                         <i class="material-icons">edit</i>
                     </a>
                     <!-- Logout Button -->
@@ -70,6 +77,8 @@
 
     <!-- Flash Messages -->
     <script>
+      const editing = {% if editing %}true{% else %}false{% endif %}; // set editing flag
+
       M.AutoInit();
       {% with messages = get_flashed_messages() %}
         {% if messages %}

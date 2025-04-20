@@ -1,118 +1,118 @@
 .custom-circle {
-    cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.25s ease;
-  }
-  
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.25s ease;
+}
+
 .custom-circle:hover {
-    opacity: 1;
-  }
-  
-  .marker-panel {
-    display: block;
-    position: absolute;
-    top: calc(2vh + 100px);
-    right: 30px;
-    width: 360px;
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-    font-family: 'Segoe UI', sans-serif;
-  }
-  
-  .marker-panel.show {
-    opacity: 1;
-    pointer-events: all;
-  }
-  
-  #close-panel {
-    background: transparent;
-    border: none;
-    font-size: 22px;
-    position: absolute;
-    top: 10px;
-    right: 14px;
-    cursor: pointer;
-    color: #555;
-    transition: transform 0.2s ease;
-  }
-  
-  #close-panel:hover {
-    transform: scale(1.2);
-    color: #000;
-  }
-  
-  #marker-info-content {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    align-items: flex-start;
-  }
-  
-  #marker-image {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    display: none;
-  }
-  
-  .marker-details {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  
-  .marker-details h5 {
-    margin: 0;
-    font-size: 1.2rem;
-    color: #222;
-  }
-  
-  .marker-details p {
-    margin: 0;
-    font-size: 0.95rem;
-    color: #444;
-  }
-  
-  .marker-details strong {
-    color: #000;
-  }
+  opacity: 1;
+}
+
+.marker-panel {
+  display: block;
+  position: absolute;
+  top: calc(2vh + 100px);
+  right: 30px;
+  width: 500px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.marker-panel.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#close-panel {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  cursor: pointer;
+  color: #555;
+  transition: transform 0.2s ease;
+}
+
+#close-panel:hover {
+  transform: scale(1.2);
+  color: #000;
+}
+
+#marker-info-content {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+#marker-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  display: none;
+}
+
+.marker-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.marker-details h5 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.marker-details p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.marker-details strong {
+  color: #000;
+}
 
 .custom-drop-icon {
-    transform-origin: bottom;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
+  transform-origin: bottom;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .custom-drop-icon svg {
-    width: 100%;
-    height: 100%;
-    animation: drop 0.3s ease-out;
-  }
-  
+  width: 100%;
+  height: 100%;
+  animation: drop 0.3s ease-out;
+}
+
 @keyframes drop {
-    0% {
-      transform: translateY(-100%) scale(0.5);
-      opacity: 0;
-    }
-    80% {
-      transform: translateY(10%) scale(1.05);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(0) scale(1);
-    }
+  0% {
+    transform: translateY(-100%) scale(0.5);
+    opacity: 0;
   }
-  
+  80% {
+    transform: translateY(10%) scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
 
 .map-button,
 .map-button:active,
