@@ -1,4 +1,5 @@
 import os
+from datetime import timedelta
 
 def load_config(app, overrides):
     if os.path.exists(os.path.join('./App', 'custom_config.py')):
@@ -15,5 +16,6 @@ def load_config(app, overrides):
     app.config["JWT_COOKIE_SECURE"] = True
     app.config["JWT_COOKIE_CSRF_PROTECT"] = False
     app.config['FLASK_ADMIN_SWATCH'] = 'darkly'
+    app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=45)
     for key in overrides:
         app.config[key] = overrides[key]

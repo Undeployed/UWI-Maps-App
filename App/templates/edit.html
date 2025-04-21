@@ -1,0 +1,150 @@
+<!-- templates/edit.html -->
+{% extends "layout.html" %}
+{% block title %}UWI Map{% endblock %}
+
+{% block head_links %}
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+<!-- Custom Styles -->
+<link href="{{ url_for('static', filename='styles/edit.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='styles/map.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div id="map-container">
+    <div id="map"></div>
+
+    <!-- Admin Panel (Floating UI Box) -->
+    <div class="floating-panel admin-box z-depth-3">
+        <div class="admin-header">
+            <label for="campus-select"><strong>Campus</strong></label>
+            <select id="campus-select" class="browser-default" onchange="redirectToCampus(this)">
+                {% for campus in campuses %}
+                    <option value="{{ campus.id }}" {% if selected_campus.id == campus.id %}selected{% endif %}>{{ campus.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="admin-body">
+            <div class="admin-actions">
+                <button id="add-marker-btn" onclick="MarkerManager.startAdding()">Add Marker</button>
+            </div>
+
+            <hr class="filter-divider" />
+
+            <!-- Marker List -->
+            <ul id="marker-list">
+                {% for marker in markers %}
+                    <li class="marker-item" id="marker-{{ marker.id }}">
+                        <div class="marker-name" style="color:{{ marker.category.color }};">{{ marker.name }}</div>
+                        <div class="marker-actions">
+                            <button onclick="infoMarker({{ marker.id }})" title="Info" class="icon-btn"><i class="fas fa-info"></i></button>
+                            <button onclick="MarkerManager.edit({{ marker.id }})" title="Edit" class="icon-btn"><i class="fas fa-pen"></i></button>
+                            <form method="POST" action="{{ url_for('marker_views.delete_marker_route', marker_id=marker.id) }}">
+                                <button onclick="deleteMarker({{ marker.id }})" title="Delete" class="icon-btn"><i class="fas fa-trash"></i></button>
+                            </form>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Add Marker Form (Hidden by default) -->
+    <div id="add-marker-form-wrapper" class="hidden">
+        <h3 id="marker-form-title">Add New Marker</h3>
+        <form id="add-marker-form" class="marker-form" method="POST" action="{{ url_for('marker_views.add_marker', campus_id=selected_campus.id) }}">
+            <!-- Hidden fields for location & campus -->
+            <input type="hidden" name="lat" id="marker-lat">
+            <input type="hidden" name="lng" id="marker-lng">
+            <input type="hidden" name="campus" value="{{ selected_campus.id }}">
+
+            <label>Name:</label>
+            <input id="marker-form-name" type="text" name="name" required>
+
+            <label>Description:</label>
+            <textarea id="marker-form-description" name="description"></textarea>
+
+            <label>Image URL:</label>
+            <input id="marker-form-image" type="text" name="image">
+
+            <label>Category:</label>
+            <select id="marker-form-category" name="category">
+                {% for category in categories %}
+                    <option value="{{ category.id }}">{{ category.name }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Campus:</label>
+            <div id="campus-name" class="bold mb-small">{{ selected_campus.name }}</div>
+
+            <!-- Coordinates Preview -->
+            <div id="coords-display" class="coords-text">
+                Latitude: <span id="coord-lat">—</span><br>
+                Longitude: <span id="coord-lng">—</span>
+            </div>
+
+            <div class="form-buttons">
+                <button id="form-add-btn" type="submit">Add Marker</button>
+                <button type="button" id="cancel-add" onclick="MarkerManager.cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Marker Info Panel -->
+    <div id="marker-info-panel" class="floating-panel hidden z-depth-3">
+        <div class="info-header">
+            <h3 id="info-title">&lt;Marker Info&gt;</h3>
+            <button class="close-btn" onclick="closeInfoPanel()">×</button>
+        </div>
+        <div class="info-body">
+            <p><strong>Description:</strong> <span id="info-description"></span></p>
+            <p><strong>Category:</strong> <span id="info-category"></span></p>
+            <p><strong>Coordinates:</strong> <span id="info-coords"></span></p>
+
+            <hr>
+
+            <h4>Update History</h4>
+            <ul id="info-updates">
+                <!-- Filled dynamically -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Marker Placement Notification -->
+    <div id="notification-bar" class="hidden">
+        <p>Click anywhere on the map to place a new marker!<br>(Esc to Cancel)</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- Inline Config -->
+<script>
+    // UI Tweaks
+    document.getElementById('search-form').style.display = "none";
+    document.getElementById('nav-bar').style.border = "2px dashed #103778";
+
+    // Redirect to selected campus page
+    function redirectToCampus(select) {
+        window.location.href = `/admin/edit/${select.value}`;
+    }
+
+    // Pass selected campus bounds & ID to JS
+    const selectedCampus = {
+        sw: [{{ selected_campus.sw_lat }}, {{ selected_campus.sw_lng }}],
+        ne: [{{ selected_campus.ne_lat }}, {{ selected_campus.ne_lng }}],
+        id: {{ selected_campus.id }}
+    };
+
+    const markers = {{ markers | tojson | safe }};
+</script>
+
+<!-- Main Scripts -->
+<script src="{{ url_for('static', filename='scripts/map.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/edit.js') }}"></script>
+
+{% endblock %}

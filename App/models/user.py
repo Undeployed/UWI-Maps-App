@@ -7,6 +7,7 @@ class User(db.Model):
     password = db.Column(db.String(120), nullable=False)
     role = db.Column(db.String(20), default='admin', nullable=False)
 
+    updates = db.relationship('MarkerUpdate', backref='user', lazy=True)
 
     def __init__(self, username, password, role='admin'):
         self.username = username
@@ -30,4 +31,3 @@ class User(db.Model):
 
     def __repr__(self):
         return f'<User: {self.id} | {self.username} | {self.role}>'
-

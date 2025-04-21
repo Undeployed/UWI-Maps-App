@@ -62,6 +62,7 @@
             <h5 id="marker-name">Marker Name</h5>
             <p id="marker-description">Description goes here.</p>
             <p><strong>Coordinates:</strong> <span id="marker-coordinates">00.00000, 00.00000</span></p>
+            <p><strong>Campus:</strong> <span id="marker-campus">UWI</span></p>
             <p><strong>Category:</strong> <span id="marker-category">General</span></p>
           </div>
         </div>
@@ -92,7 +93,8 @@
     // Sending data to the map.js file
     const selectedCampus = {
         sw: [{{ selected_campus.sw_lat }}, {{ selected_campus.sw_lng }}],
-        ne: [{{ selected_campus.ne_lat }}, {{ selected_campus.ne_lng }}]
+        ne: [{{ selected_campus.ne_lat }}, {{ selected_campus.ne_lng }}],
+        id: {{ selected_campus.id }}
     };
 
     const markers = {{ markers | tojson | safe }};

@@ -54,5 +54,3 @@ def delete_marker_update(id):
         db.session.rollback()
         print("Error deleting MarkerUpdate:", e)
         return False
-
-

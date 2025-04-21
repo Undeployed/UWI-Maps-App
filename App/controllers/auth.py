@@ -1,3 +1,4 @@
+from flask import url_for, redirect, flash
 from flask_jwt_extended import create_access_token, jwt_required, JWTManager, get_jwt_identity, verify_jwt_in_request
 
 from App.models import User
@@ -25,6 +26,17 @@ def setup_jwt(app):
     identity = jwt_data["sub"]
     return User.query.get(identity)
 
+  # override JWT expired token callback
+  @jwt.expired_token_loader
+  def expired_token_callback(jwt_header, jwt_payload):
+      flash("Token Expired!")
+      return redirect(url_for('index_views.index_page'))
+
+  @jwt.invalid_token_loader
+  def invalid_token_callback(error):
+      flash("Invalid Token!")
+      return redirect(url_for('index_views.index_page'))
+    
   return jwt
 
 

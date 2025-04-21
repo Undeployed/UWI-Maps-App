@@ -10,7 +10,7 @@ class Marker(db.Model):
     longitude = db.Column(db.Float, nullable=False)
     image = db.Column(db.String(200), nullable=True)
 
-    marker_updates = db.relationship('MarkerUpdate', backref='marker', lazy=True, cascade="all, delete-orphan")
+    updates = db.relationship('MarkerUpdate', backref='marker', lazy=True, cascade="all, delete-orphan")
 
     def __init__(self, name, campus_id, category_id, description, latitude, longitude, image):
         self.campus_id= campus_id
@@ -24,12 +24,14 @@ class Marker(db.Model):
     def get_json(self):
         return {
             'id': self.id,
-            'campus_id': self.campus_id,
+            'campus': self.campus.name,
             'name': self.name,
             'description': self.description,
             'latitude': self.latitude,
             'longitude': self.longitude,
-            'category': self.category.get_json()
+            'category': self.category.get_json(),
+            'image': self.image,
+            'updates': [update.get_json() for update in self.updates]
         }
     
     def __repr__(self):
