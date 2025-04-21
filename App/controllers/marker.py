@@ -3,14 +3,14 @@ from App.models import Marker, MarkerUpdate
 from App.database import db
 from sqlalchemy.exc import SQLAlchemyError
 
-def create_marker(user_id, name, campus_id, cateogry_id, description, latitude, longitude, image="https://placeholder.pics/svg/150"):
+def create_marker(user_id, name, campus_id, category_id, description, latitude, longitude, image="https://placeholder.pics/svg/150"):
     from  App.controllers import add_marker_update # Avoid Circular Dependency
 
     try:
         if image.strip() == '' or not image:
             image = "https://placeholder.pics/svg/150"
             
-        marker = Marker(name=name, campus_id=campus_id, category_id=cateogry_id, description=description, latitude=latitude, longitude=longitude, image=image)
+        marker = Marker(name=name, campus_id=campus_id, category_id=category_id, description=description, latitude=latitude, longitude=longitude, image=image)
         db.session.add(marker)
         db.session.commit()
 

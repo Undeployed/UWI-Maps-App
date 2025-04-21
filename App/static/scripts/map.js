@@ -1,200 +1,216 @@
 /****************************
-* Map Initialization
+* Map Module
 ****************************/
-const uwibounds = [selectedCampus.sw, selectedCampus.ne];
+const MapModule = (function() {
+    // Private variables
+    let map;
+    let activeLocationMarker = null;
+    let userLocationMarker = null;
+    let clickedMarker = false;
+    let selectedMarker = null;
+    let toggleButton, locateButton;
+    
+    const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '&copy; Esri & OpenStreetMap contributors',
+        maxZoom: 19
+    });
 
-const map = L.map('map', {
-    center: [10.642, -61.400],
-    zoom: 18,
-    minZoom: 17,
-    maxZoom: 19,
-    maxBounds: uwibounds,
-    maxBoundsViscosity: 0.9,
-    attributionControl: false,
-    zoomControl: false
-});
+    const defaultLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 19
+    });
 
-// Map Tile Layers
-const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    attribution: '&copy; Esri & OpenStreetMap contributors',
-    maxZoom: 19
-});
+    // Public API
+    return {
+        init(selectedCampus) {
+            const uwibounds = [selectedCampus.sw, selectedCampus.ne];
+            const centerLat = (selectedCampus.sw[0] + selectedCampus.ne[0]) / 2;
+            const centerLng = (selectedCampus.sw[1] + selectedCampus.ne[1]) / 2;
 
-const defaultLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors',
-    maxZoom: 19
-}).addTo(map);
+            map = L.map('map', {
+                center: [centerLat, centerLng],
+                zoom: 18,
+                minZoom: 17,
+                maxZoom: 19,
+                maxBounds: uwibounds,
+                maxBoundsViscosity: 0.9,
+                attributionControl: false,
+                zoomControl: false
+            }).fitBounds(uwibounds);
 
-function toggleMapTiles() {
-    if (map.hasLayer(defaultLayer)) {
-        map.removeLayer(defaultLayer);
-        map.addLayer(satelliteLayer);
-    } else {
-        map.removeLayer(satelliteLayer);
-        map.addLayer(defaultLayer);
-    }
-}
+            defaultLayer.addTo(map);
+            this.initControls();
+            this.initEventHandlers();
+            return map; // Return map instance for edit.js
+        },
 
-/****************************
- * Map Controls
- ****************************/
-L.Control.MapButtons = L.Control.extend({
-    onAdd: function (map) {
-        const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+        initControls() {
+            // Custom control buttons
+            L.Control.MapButtons = L.Control.extend({
+                onAdd: function() {
+                    const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
 
-        // Satellite toggle button
-        const toggleButton = L.DomUtil.create('button', 'map-button material-icon-btn', container);
-        toggleButton.innerHTML = '<i class="material-icons">satellite_alt</i>';
-        toggleButton.onclick = toggleMapTiles;
+                    // Satellite toggle button
+                    toggleButton = L.DomUtil.create('button', 'map-button material-icon-btn', container);
+                    toggleButton.innerHTML = '<i class="material-icons">satellite_alt</i>';
+                    toggleButton.onclick = () => MapModule.toggleMapTiles();
 
-        // Locate user button
-        const locateButton = L.DomUtil.create('button', 'map-button material-icon-btn', container);
-        locateButton.innerHTML = '<i class="material-icons">my_location</i>';
-        locateButton.onclick = () => {
-        map.locate({ setView: true, maxZoom: 20 });
-        };
+                    // Locate user button
+                    locateButton = L.DomUtil.create('button', 'map-button material-icon-btn', container);
+                    locateButton.innerHTML = '<i class="material-icons">my_location</i>';
+                    locateButton.onclick = () => map.locate({ setView: true, maxZoom: 20 });
 
-        return container;
-    }
-});
+                    return container;
+                }
+            });
 
-map.addControl(new L.Control.MapButtons({ position: 'bottomright' }));
-L.control.zoom({ position: 'bottomleft' }).addTo(map);
+            map.addControl(new L.Control.MapButtons({ position: 'bottomright' }));
+            L.control.zoom({ position: 'bottomleft' }).addTo(map);
+        },
 
+        initEventHandlers() {
+            map.on('locationfound', (e) => {
+                if (userLocationMarker) map.removeLayer(userLocationMarker);
+                userLocationMarker = L.circleMarker(e.latlng, {
+                    radius: 12,
+                    color: '#5bb7cf',
+                    fillColor: '#5bb7cf',
+                    fillOpacity: 0.7,
+                    weight: 3
+                }).addTo(map).bindPopup("You are here!").openPopup();
+            });
 
-/****************************
-* User Location Handling
-****************************/
-map.on('locationfound', (e) => {
-    L.marker(e.latlng).addTo(map).bindPopup("You are here!").openPopup();
-});
+            map.on('locationerror', () => {
+                alert("Location access denied or unavailable.");
+            });
+        },
 
-map.on('locationerror', () => {
-    alert("Location access denied or unavailable.");
-});
+        toggleMapTiles() {
+            if (map.hasLayer(defaultLayer)) {
+                map.removeLayer(defaultLayer);
+                map.addLayer(satelliteLayer);
+            } else {
+                map.removeLayer(satelliteLayer);
+                map.addLayer(defaultLayer);
+            }
+        },
 
+        loadMarkers(markers) {
+            markers.forEach(marker => {
+                const latlng = [marker.latitude, marker.longitude];
+                const circle = L.circleMarker(latlng, {
+                    radius: 8,
+                    color: marker.category.color,
+                    fillColor: marker.category.color,
+                    fillOpacity: 0.9,
+                    className: 'custom-circle'
+                }).on('click', function(e) {
+                    if (editing && MarkerManager.state.isAdding) return;
+                    clickedMarker = true;
+                    e.originalEvent.stopPropagation();
+                    
+                    if (activeLocationMarker) map.removeLayer(activeLocationMarker);
+                    
+                    this.showMarkerPointer(marker, latlng);
+                    this.showMarkerDetails(marker);
+                    
+                    if (editing) this.updateEditUI(marker);
+                }.bind(this));
 
-/****************************
-* Marker Logic
-****************************/
-let activeLocationMarker = null;
-let clickedMarker = false;
+                circle.addTo(map);
+            });
+        },
 
-function lightenHex(hex, percent) {
-    hex = hex.replace('#', '');
-    if (hex.length === 3) {
-        hex = hex.split('').map(c => c + c).join('');
-    }
+        async showMarkerPointer(marker, latlng) {
+            const response = await fetch('/static/images/marker-pointer.svg');
+            const svg = await response.text();
+            const coloredSvg = svg.replace(/fill=".*?"/g, `fill="${this.lightenHex(marker.category?.color || '#999', 20)}"`);
 
-    const num = parseInt(hex, 16);
-    let r = (num >> 16) + Math.round(255 * (percent / 100));
-    let g = ((num >> 8) & 0x00FF) + Math.round(255 * (percent / 100));
-    let b = (num & 0x0000FF) + Math.round(255 * (percent / 100));
+            const dropIcon = L.divIcon({
+                className: 'custom-drop-icon',
+                html: `<div class="custom-drop-icon">${coloredSvg}</div>`,
+                iconSize: [50, 50],
+                iconAnchor: [25, 50]
+            });
 
-    r = r > 255 ? 255 : r;
-    g = g > 255 ? 255 : g;
-    b = b > 255 ? 255 : b;
+            activeLocationMarker = L.marker(latlng, { icon: dropIcon }).addTo(map);
+        },
 
-    return '#' + (1 << 24 | (r << 16) | (g << 8) | b).toString(16).slice(1);
-}
-  
-function loadMarkers() {
-    markers.forEach(marker => {
-        const latlng = [marker.latitude, marker.longitude];
+        lightenHex(hex, percent) {
+            hex = hex.replace('#', '');
+            if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
 
-        // Category color based on 2nd category (fallback to default if missing)
-        const categoryColor = marker.category.color;
+            const num = parseInt(hex, 16);
+            const adjust = (c) => Math.min(c + Math.round(255 * (percent / 100)), 255);
+            
+            const r = adjust(num >> 16);
+            const g = adjust((num >> 8) & 0x00FF);
+            const b = adjust(num & 0x0000FF);
 
-        const circle = L.circleMarker(latlng, {
-            radius: 8,
-            color: categoryColor,
-            fillColor: categoryColor,
-            fillOpacity: 0.9,
-            className: 'custom-circle'
-        }).on('click', function (e) {
-            clickedMarker = true;
-            e.originalEvent.stopPropagation(); // Prevent map from triggering click
+            return '#' + (1 << 24 | (r << 16) | (g << 8) | b).toString(16).slice(1);
+        },
 
-            // Remove previous pointer
-            if (activeLocationMarker) {
-                map.removeLayer(activeLocationMarker);
+        updateEditUI(marker) {
+            if (selectedMarker) this.removeHighlight(selectedMarker.id);
+            selectedMarker = marker;
+            
+            const listItem = document.getElementById(`marker-${marker.id}`);
+            if (listItem) {
+                listItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                listItem.classList.add('highlight');
+            }
+        },
+
+        removeHighlight(id) {
+            const listItem = document.getElementById(`marker-${id}`);
+            if (listItem) listItem.classList.remove('highlight');
+            selectedMarker = null;
+        },
+
+        showMarkerDetails(marker) {
+            if (editing) return;
+            
+            document.getElementById('marker-name').textContent = marker.name || 'Unnamed Marker';
+            document.getElementById('marker-description').textContent = marker.description || 'No description available.';
+            document.getElementById('marker-coordinates').textContent = `${marker.latitude.toFixed(5)}, ${marker.longitude.toFixed(5)}`;
+            document.getElementById('marker-campus').textContent = marker.campus || 'Unnamed Campus';
+            document.getElementById('marker-category').textContent = marker.category.name || 'Uncategorized';
+
+            const imageEl = document.getElementById('marker-image');
+            if (marker.image) {
+                imageEl.src = marker.image;
+                imageEl.alt = marker.name;
+                imageEl.style.display = 'block';
+            } else {
+                imageEl.style.display = 'none';
             }
 
-           // Fetch and inject custom SVG as drop marker
-           fetch('/static/images/marker-pointer.svg')
-           .then(res => res.text())
-           .then(svg => {
-               // customize SVG color by replacing fill
-               const coloredSvg = svg.replace(/fill=".*?"/g, `fill="${lightenHex(categoryColor, 20)}"`);
+            document.getElementById('marker-info-panel').classList.add('show');
+        },
 
-               const dropIcon = L.divIcon({
-                   className: 'custom-drop-icon',
-                   html: `<div class="custom-drop-icon">${coloredSvg}</div>`,
-                   iconSize: [50, 50],
-                   iconAnchor: [25, 50]
-               });
+        closePanel() {
+            if (clickedMarker) {
+                clickedMarker = false;
+                return;
+            }
 
-               activeLocationMarker = L.marker(latlng, {
-                   icon: dropIcon
-               }).addTo(map);
-           });
+            if (selectedMarker && editing) this.removeHighlight(selectedMarker.id);
+            if (!editing) document.getElementById('marker-info-panel').classList.remove('show');
+            if (activeLocationMarker) {
+                map.removeLayer(activeLocationMarker);
+                activeLocationMarker = null;
+            }
+        }
+    };
+})();
 
-            showMarkerDetails(marker);
-        });
+// Initialize map and expose it to edit.js
+const map = MapModule.init(selectedCampus);
+map.on('click', () => MapModule.closePanel());
 
-        circle.addTo(map);
-    });
+if (!editing) {
+    document.getElementById('close-panel').onclick = () => MapModule.closePanel();
 }
 
-loadMarkers();
-
-
-/****************************
-* Map Click to Close Panel
-****************************/
-function closePanel() {
-    if (clickedMarker) {
-        clickedMarker = false;
-        return;
-    }
-    
-    // Close side panel
-    document.getElementById('marker-info-panel').classList.remove('show');
-    
-    // Remove pointer marker
-    if (activeLocationMarker) {
-        map.removeLayer(activeLocationMarker);
-        activeLocationMarker = null;
-    }
-}
-
-map.on('click', function () {
-    closePanel()
-});
-
-document.getElementById('close-panel').onclick = () => {
-    closePanel()
-};
-
-/****************************
-* Marker Info Panel Handler
-****************************/
-function showMarkerDetails(marker) {
-    // Get all the target elements inside the info panel
-    document.getElementById('marker-name').textContent = marker.name || 'Unnamed Marker';
-    document.getElementById('marker-description').textContent = marker.description || 'No description available.';
-    document.getElementById('marker-coordinates').textContent = `${marker.latitude.toFixed(5)}, ${marker.longitude.toFixed(5)}`;
-    document.getElementById('marker-category').textContent = marker.category.name || 'Uncategorized';
-
-    const imageEl = document.getElementById('marker-image');
-    if (marker.image) {
-        imageEl.src = marker.image;
-        imageEl.alt = marker.name;
-        imageEl.style.display = 'block';
-    } else {
-        imageEl.style.display = 'none';
-    }
-
-    // Show the panel
-    document.getElementById('marker-info-panel').classList.add('show');
-}
+// Load markers
+MapModule.loadMarkers(markers);
