@@ -13,16 +13,23 @@
   position: absolute;
   top: calc(2vh + 100px);
   right: 30px;
-  width: 500px;
+  width: 90vw;
+  max-width: 500px;
   background: #ffffff;
   border-radius: 10px;
-  padding: 20px;
+  padding: 1rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   z-index: 1000;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
   font-family: 'Segoe UI', sans-serif;
+}
+
+.marker-panel #marker-description {
+  position: relative;
+  max-height: 25vh;
+  overflow-y: auto;
 }
 
 .marker-panel.show {
@@ -113,7 +120,6 @@
   }
 }
 
-
 .map-button,
 .map-button:active,
 .map-button:focus {
@@ -129,5 +135,50 @@
 
 .map-button:hover .material-icons {
   opacity: 1;
-  transform: scale(1.075)
+  transform: scale(1.075);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  #marker-image {
+    width: 30%;
+    height: auto;
+  }
+  .marker-details h5 {
+    font-size: 1rem;
+  }
+
+  .marker-details p {
+    font-size: 0.9rem;
+  }
+
+  .marker-panel {
+    border-radius: 0;
+    top: auto;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    max-height: 35vh;
+    overflow-y: scroll;
+    transform: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .marker-details h5 {
+    font-size: 0.95rem;
+  }
+
+  .marker-details p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-height: 500px) {
+  .marker-panel {
+    top: auto;
+    bottom: 45px;
+    max-height: 30vh;
+    overflow-y: auto;
+  }
 }

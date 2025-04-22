@@ -4,26 +4,36 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>{% block title %}UWI Map{% endblock %}</title>
+    <title>{% block title %}UWI Maps{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/uwi-logo.png') }}">
+
 
     <!-- Materialize CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Fonts: Black Han Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+
     <!-- Custom Styles -->
     <link href="{{ url_for('static', filename='styles/layout.css') }}" rel="stylesheet">
 
     {% block head_links %}{% endblock %}
+
+    {% block styles %}{% endblock %}
   </head>
 
   <body>
     <!-- Navbar -->
-    <header class="floating-nav z-depth-2" id="nav-bar">
+    <header class="floating-nav" id="nav-bar">
         <div class="nav-content-container">
             <!-- Left: Logo / Title -->
             <div class="nav-section left-section">
-                <a href="/" class="brand-logo"><i class="material-icons">map</i> UWI Map</a>
+              <a href="/" class="brand-logo">
+                <img src="{{ url_for('static', filename='images/uwi-logo.png') }}" alt="UWI Maps Logo" class="brand-logo-img">
+                UWI Maps
+              </a>
             </div>
         
             <!-- Center: Search bar -->
@@ -46,11 +56,16 @@
                     <p>&lt;Editing&gt;</p>
                     {% endif %}
                     <!-- Edit Map Icon Button -->
-                    <a class="icon-btn" title="Edit Map"
-                      {%if editing %}href="{{url_for('index_views.index_page', campus_id=selected_campus.id)}}"
-                      {% else %}href="{{url_for('user_views.edit_page', campus_id=selected_campus.id)}}"{% endif %}>
-                        <i class="material-icons">edit</i>
-                    </a>
+                    {% if selected_campus %}
+                      <a class="icon-btn" title="Edit Map"
+                        {% if editing %}
+                          href="{{ url_for('index_views.index_page', campus_id=selected_campus.id) }}"
+                        {% else %}
+                          href="{{ url_for('user_views.edit_page', campus_id=selected_campus.id) }}"
+                        {% endif %}>
+                          <i class="material-icons">edit</i>
+                      </a>
+                    {% endif %}
                     <!-- Logout Button -->
                     <a href="/logout" class="btn">Logout</a>
                 {% else %}

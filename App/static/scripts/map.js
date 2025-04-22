@@ -171,7 +171,7 @@ const MapModule = (function() {
             if (editing) return;
             
             document.getElementById('marker-name').textContent = marker.name || 'Unnamed Marker';
-            document.getElementById('marker-description').textContent = marker.description || 'No description available.';
+            document.getElementById('marker-description').innerHTML = (marker.description || 'No description available.').replace(/\n/g, '<br>');
             document.getElementById('marker-coordinates').textContent = `${marker.latitude.toFixed(5)}, ${marker.longitude.toFixed(5)}`;
             document.getElementById('marker-campus').textContent = marker.campus || 'Unnamed Campus';
             document.getElementById('marker-category').textContent = marker.category.name || 'Uncategorized';
@@ -183,6 +183,24 @@ const MapModule = (function() {
                 imageEl.style.display = 'block';
             } else {
                 imageEl.style.display = 'none';
+            }
+
+
+            const faculty = document.getElementById('marker-faculty');
+            if (marker.faculty) {
+                faculty.textContent = marker.faculty.name || 'No Faculty'
+            }
+
+            const markerTime = document.getElementById('marker-time');
+            const markerTimeP = document.getElementById('marker-time-p');
+            if (marker.open_time) {
+                let desc = marker.open_time;
+                if (marker.close_time) desc += ` - ${marker.close_time}`;
+                markerTime.textContent = desc;
+                markerTimeP.style.display = 'inline-block';
+            } else {
+                markerTime.textContent = '';
+                markerTimeP.style.display = 'none';
             }
 
             document.getElementById('marker-info-panel').classList.add('show');

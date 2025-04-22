@@ -1,133 +1,296 @@
-campus,name,description,latitude,longitude,category,image
-St. Augustine,Chemical Engineering Lab,Chemical Engineering Lab is a laboratory specializing in chemical engineering research and experiments.,10.63943,-61.400442,Laboratory,
-St. Augustine,Mechanical Engineering Lab,Mechanical Engineering Lab is a laboratory specializing in mechanical engineering research and experiments.,10.638375,-61.40012,Laboratory,
-St. Augustine,Environmental & Fluids Labs,Environmental & Fluids Labs is a laboratory specializing in environmental & fluids s research and experiments.,10.638697,-61.400118,Laboratory,
-St. Augustine,Mechanical Engineering,Mechanical Engineering houses offices and administrative functions for its faculty or department.,10.638629,-61.400394,Faculty Office,
-St. Augustine,Engineering Stores & Services,Engineering Stores & Services houses offices and administrative functions for its faculty or department.,10.638932,-61.400506,Faculty Office,
-St. Augustine,Lecture Room - Petroleum GeoScience,Lecture Room - Petroleum GeoScience is a lecture hall used for teaching and academic presentations.,10.639019,-61.400308,Lecture Hall,
-St. Augustine,UWI Civil Engineering(Imbert Building),UWI Civil Engineering(Imbert Building) houses offices and administrative functions for its faculty or department.,10.638742,-61.399683,Faculty Office,
-St. Augustine,JFK Lecture Theater,JFK Lecture Theater is a modern lecture theater equipped with audio-visual technology for large classes and events.,10.638914,-61.39935,Lecture Hall,
-St. Augustine,JFK Auditorium,"JFK Auditorium is an auditorium designed for lectures, performances, and gatherings.",10.639204,-61.399485,Lecture Hall,
-St. Augustine,Kenneth S Julien Building(Faculty of Engineering),Kenneth S Julien Building(Faculty of Engineering) houses offices and administrative functions for its faculty or department.,10.639325,-61.399994,Faculty Office,
-St. Augustine,Electrical & Computer Engineering,Electrical & Computer Engineering houses offices and administrative functions for its faculty or department.,10.639631,-61.400177,Faculty Office,
-St. Augustine,Chemical Engineering - Max Richard Building,Chemical Engineering - Max Richard Building houses offices and administrative functions for its faculty or department.,10.639805,-61.399882,Faculty Office,
-St. Augustine,Alma Jordan Library,Alma Jordan Library is a library offering an extensive collection of print and digital resources for study and research.,10.639699,-61.39909,Library,
-St. Augustine,Food Science & Technology & Biotechnology,Food Science & Technology & Biotechnology houses offices and administrative functions for its faculty or department.,10.640005,-61.400866,Faculty Office,
-St. Augustine,Department of Geomatics Engineering and Land Management,Department of Geomatics Engineering and Land Management houses offices and administrative functions for its faculty or department.,10.640274,-61.400488,Faculty Office,
-St. Augustine,CARIRI,CARIRI houses offices and administrative functions for its faculty or department.,10.640408,-61.400944,Faculty Office,
-St. Augustine,TCB #2,TCB #2 houses offices and administrative functions for its faculty or department.,10.640622,-61.400364,Faculty Office,
-St. Augustine,Faculty of Agriculture and Natural Sciences,Faculty of Agriculture and Natural Sciences houses offices and administrative functions for its faculty or department.,10.641091,-61.400335,Faculty Office,
-St. Augustine,LRC Greens,LRC Greens houses offices and administrative functions for its faculty or department.,10.640516,-61.39956,Faculty Office,
-St. Augustine,U.W.I. Pool,"U.W.I. Pool is a sports facility used for athletic training, practices, and competitions.",10.640912,-61.399825,Sports Facility,
-St. Augustine,TCB #3,TCB #3 houses offices and administrative functions for its faculty or department.,10.641175,-61.401271,Faculty Office,
-St. Augustine,Chemistry,Chemistry houses offices and administrative functions for its faculty or department.,10.641328,-61.401308,Faculty Office,
-St. Augustine,Chemistry Washrooms,Chemistry Washrooms houses offices and administrative functions for its faculty or department.,10.641402,-61.401089,Faculty Office,
-St. Augustine,Institute of International Relations,Institute of International Relations houses offices and administrative functions for its faculty or department.,10.641668,-61.40092,Faculty Office,
-St. Augustine,Centre for Latin America and Caribbean,Centre for Latin America and Caribbean houses offices and administrative functions for its faculty or department.,10.641721,-61.400705,Faculty Office,
-St. Augustine,Faculty of Law,Faculty of Law houses offices and administrative functions for its faculty or department.,10.64213,-61.40082,Faculty Office,
-St. Augustine,Faculty of Law & SALISES Building,Faculty of Law & SALISES Building houses offices and administrative functions for its faculty or department.,10.641929,-61.40103,Faculty Office,
-St. Augustine,Chemistry C1,Chemistry C1 houses offices and administrative functions for its faculty or department.,10.642077,-61.401652,Faculty Office,
-St. Augustine,Chemistry,Chemistry houses offices and administrative functions for its faculty or department.,10.642185,-61.40119,Faculty Office,
-St. Augustine,Chemistry C1 Extension,Chemistry C1 Extension houses offices and administrative functions for its faculty or department.,10.642362,-61.401882,Faculty Office,
-St. Augustine,Sir Frank Stocktake Building,Sir Frank Stocktake Building houses offices and administrative functions for its faculty or department.,10.643226,-61.401046,Faculty Office,
-St. Augustine,CARDI,CARDI houses offices and administrative functions for its faculty or department.,10.64349,-61.40229,Faculty Office,
-St. Augustine,Prof. John Spence Building,Prof. John Spence Building houses offices and administrative functions for its faculty or department.,10.644278,-61.401751,Faculty Office,
-St. Augustine,TTPost-UWI Post Shop,TTPost-UWI Post Shop houses offices and administrative functions for its faculty or department.,10.644842,-61.401872,Faculty Office,
-St. Augustine,UWI Bookstore,"UWI Bookstore is a bookstore selling textbooks, stationery, and university apparel.",10.645079,-61.401864,Bookstore,
-St. Augustine,Admin Field (West),"Admin Field (West) is a sports facility used for athletic training, practices, and competitions.",10.644318,-61.40108,Sports Facility,
-St. Augustine,UWI Admin Building,UWI Admin Building houses offices and administrative functions for its faculty or department.,10.644318,-61.40022,Faculty Office,
-St. Augustine,Admin Field (East),"Admin Field (East) is a sports facility used for athletic training, practices, and competitions.",10.64422,-61.399165,Sports Facility,
-St. Augustine,Milner Hall,"Milner Hall is a recreational area for student gatherings, events, and relaxation.",10.644286,-61.397846,Recreational Area,
-St. Augustine,DAAGA Auditorium,"DAAGA Auditorium is an auditorium designed for lectures, performances, and gatherings.",10.643158,-61.398688,Lecture Hall,
-St. Augustine,Centre of Language Learning,Centre of Language Learning houses offices and administrative functions for its faculty or department.,10.64263,-61.398591,Faculty Office,
-St. Augustine,UWI estate police,UWI estate police houses offices and administrative functions for its faculty or department.,10.642588,-61.399155,Faculty Office,
-St. Augustine,Human Resource Section,Human Resource Section houses offices and administrative functions for its faculty or department.,10.642222,-61.398538,Faculty Office,
-St. Augustine,UWI New Administration Building,UWI New Administration Building houses offices and administrative functions for its faculty or department.,10.641792,-61.398463,Faculty Office,
-St. Augustine,UWI Marketing and Communications Office,UWI Marketing and Communications Office houses offices and administrative functions for its faculty or department.,10.641486,-61.399023,Faculty Office,
-St. Augustine,UWI Food Court,"UWI Food Court is a cafeteria serving a variety of hot meals, beverages, and snacks.",10.638969,-61.398227,Cafeteria,
-St. Augustine,Rituals,Rituals houses offices and administrative functions for its faculty or department.,10.638787,-61.398683,Faculty Office,
-St. Augustine,Linda's Bakery,Linda's Bakery is a snack shop offering quick bites and refreshments.,10.638653,-61.398626,Snack Shop,
-St. Augustine,KFC UWI,KFC UWI is a snack shop offering quick bites and refreshments.,10.639093,-61.398052,Snack Shop,
-St. Augustine,Subway U.W.I,Subway U.W.I is a snack shop offering quick bites and refreshments.,10.638977,-61.397996,Snack Shop,
-St. Augustine,Campus mini mart,Campus mini mart is a snack shop offering quick bites and refreshments.,10.638932,-61.397645,Snack Shop,
-St. Augustine,Student Activity Centre,Student Activity Centre houses offices and administrative functions for its faculty or department.,10.639541,-61.397803,Faculty Office,
-St. Augustine,Faculty of Social Sciences/Faculty of Human & Education,Faculty of Social Sciences/Faculty of Human & Education houses offices and administrative functions for its faculty or department.,10.639646,-61.398481,Faculty Office,
-St. Augustine,Social Sciences,Social Sciences houses offices and administrative functions for its faculty or department.,10.640192,-61.398417,Faculty Office,
-St. Augustine,Department of Management Studies,Department of Management Studies houses offices and administrative functions for its faculty or department.,10.640255,-61.398747,Faculty Office,
-St. Augustine,Learning Resource Centre,Learning Resource Centre houses offices and administrative functions for its faculty or department.,10.640514,-61.398884,Faculty Office,
-St. Augustine,Trinity Hall,"Trinity Hall is a recreational area for student gatherings, events, and relaxation.",10.640121,-61.397865,Recreational Area,
-St. Augustine,Tandori Hut,Tandori Hut is a snack shop offering quick bites and refreshments.,10.639525,-61.397661,Snack Shop,
-St. Augustine,SAC Republic Bank ATM,SAC Republic Bank ATM provides 24/7 ATM services for convenient cash withdrawals.,10.639301,-61.397682,ATM,
-St. Augustine,Veg Out,"Veg Out is a cafeteria serving a variety of hot meals, beverages, and snacks.",10.639293,-61.3978,Cafeteria,
-St. Augustine,Canada Hall,"Canada Hall is a recreational area for student gatherings, events, and relaxation.",10.638065,-61.397065,Recreational Area,
-St. Augustine,University Cemetery,University Cemetery houses offices and administrative functions for its faculty or department.,10.637835,-61.398015,Faculty Office,
-St. Augustine,Sir Frank Worrell Field,"Sir Frank Worrell Field is a sports facility used for athletic training, practices, and competitions.",10.639322,-61.395984,Sports Facility,
-St. Augustine,Faculty of Sport(SPEC),Faculty of Sport(SPEC) houses offices and administrative functions for its faculty or department.,10.640366,-61.395783,Faculty Office,
-St. Augustine,Clinic,Clinic is a health centre providing medical services and emergency care to students and staff.,10.640822,-61.398117,Health Centre,
-St. Augustine,Teaching and Learning Complex(TLC),Teaching and Learning Complex(TLC) houses offices and administrative functions for its faculty or department.,10.641568,-61.396727,Faculty Office,
-St. Augustine,Office of the Deputy Principal,Office of the Deputy Principal houses offices and administrative functions for its faculty or department.,10.641318,-61.399031,Faculty Office,
-Cave Hill,The Golden Stool New Administration Building,The Golden Stool New Administration Building houses offices and administrative functions for its faculty or department.,13.133078,-59.627786,Faculty Office,
-Cave Hill,Faculty of Social Sciences,Faculty of Social Sciences houses offices and administrative functions for its faculty or department.,13.133303,-59.628811,Faculty Office,
-Cave Hill,Sidney Martin Library,Sidney Martin Library is a library offering an extensive collection of print and digital resources for study and research.,13.133434,-59.629996,Library,
-Cave Hill,The Mount Restaurant,"The Mount Restaurant is a cafeteria serving a variety of hot meals, beverages, and snacks.",13.134405,-59.631198,Cafeteria,
-Cave Hill,Roy Marshall Teaching Complex,Roy Marshall Teaching Complex is a lecture hall used for teaching and academic presentations.,13.134578,-59.629052,Lecture Hall,
-Cave Hill,3 W's Oval,"3 W's Oval is a sports facility used for athletic training, practices, and competitions.",13.135607,-59.63078,Sports Facility,
-Cave Hill,3 W's Oval Pavilion,"3 W's Oval Pavilion is a sports facility used for athletic training, practices, and competitions.",13.136025,-59.631338,Sports Facility,
-Cave Hill,Frank Worrel Hall,"Frank Worrel Hall is a recreational area for student gatherings, events, and relaxation.",13.136197,-59.629734,Recreational Area,
-Cave Hill,Errol Barrow Centre for Creative Imagination,Errol Barrow Centre for Creative Imagination houses offices and administrative functions for its faculty or department.,13.136798,-59.631692,Faculty Office,
-Cave Hill,Caricom Research Building,Caricom Research Building houses offices and administrative functions for its faculty or department.,13.137237,-59.630662,Faculty Office,
-Cave Hill,The Alister McIntyre Building,The Alister McIntyre Building houses offices and administrative functions for its faculty or department.,13.136923,-59.62983,Faculty Office,
-Cave Hill,Campus Office of Planning and Projects,Campus Office of Planning and Projects houses offices and administrative functions for its faculty or department.,13.13744,-59.630168,Faculty Office,
-Cave Hill,School of Business,School of Business houses offices and administrative functions for its faculty or department.,13.13778,-59.630565,Faculty Office,
-Cave Hill,Keith Hunte Hall,"Keith Hunte Hall is a recreational area for student gatherings, events, and relaxation.",13.132963,-59.632708,Recreational Area,
-Cave Hill,TNT Barbeque hut,"TNT Barbeque hut is a cafeteria serving a variety of hot meals, beverages, and snacks.",13.132569,-59.63156,Cafeteria,
-Cave Hill,Big Bite,Big Bite is a snack shop offering quick bites and refreshments.,13.131963,-59.631705,Snack Shop,
-Cave Hill,Nelson Mandela Freedom Park,Nelson Mandela Freedom Park houses offices and administrative functions for its faculty or department.,13.133366,-59.631627,Faculty Office,
-Cave Hill,Post Graduate Teaching Complex,Post Graduate Teaching Complex is a lecture hall used for teaching and academic presentations.,13.134604,-59.632807,Lecture Hall,
-Mona,August Town Football Club,"August Town Football Club is a sports facility used for athletic training, practices, and competitions.",17.996392,-76.740983,Sports Facility,
-Mona,Norman Manley Law School,Norman Manley Law School houses offices and administrative functions for its faculty or department.,17.997331,-76.743659,Faculty Office,
-Mona,Cricket Oval,"Cricket Oval is a sports facility used for athletic training, practices, and competitions.",17.997116,-76.740816,Sports Facility,
-Mona,Weights Room,Weights Room houses offices and administrative functions for its faculty or department.,17.997106,-76.740642,Faculty Office,
-Mona,The Sir Frank Worrell Cricket Ground,"The Sir Frank Worrell Cricket Ground is a sports facility used for athletic training, practices, and competitions.",17.997782,-76.740599,Sports Facility,
-Mona,Usain Bolt Track,"Usain Bolt Track is a sports facility used for athletic training, practices, and competitions.",18.00044,-76.740288,Sports Facility,
-Mona,Student Union,Student Union houses offices and administrative functions for its faculty or department.,18.000731,-76.743453,Faculty Office,
-Mona,Amphitheatre,Amphitheatre is a modern lecture theater equipped with audio-visual technology for large classes and events.,18.000757,-76.742764,Lecture Hall,
-Mona,UWI Gym,"UWI Gym is a sports facility used for athletic training, practices, and competitions.",18.000558,-76.743391,Sports Facility,
-Mona,Rex Nettleford Hall,"Rex Nettleford Hall is a recreational area for student gatherings, events, and relaxation.",18.002869,-76.74194,Recreational Area,
-Mona,Hope valley Experimental School,Hope valley Experimental School houses offices and administrative functions for its faculty or department.,18.00332,-76.739676,Faculty Office,
-Mona,Sir John Golding Rehabilitation Center,Sir John Golding Rehabilitation Center houses offices and administrative functions for its faculty or department.,18.005185,-76.740194,Faculty Office,
-Mona,United Theological College of the West Indies,United Theological College of the West Indies houses offices and administrative functions for its faculty or department.,18.007118,-76.741334,Faculty Office,
-Mona,Irvine Hall,"Irvine Hall is a recreational area for student gatherings, events, and relaxation.",18.005892,-76.742898,Recreational Area,
-Mona,Scotiabank Centennial Accident & Emergency Unit,Scotiabank Centennial Accident & Emergency Unit is a health centre providing medical services and emergency care to students and staff.,18.010682,-76.743008,Health Centre,
-Mona,University Hospital of the West Indies,University Hospital of the West Indies is a health centre providing medical services and emergency care to students and staff.,18.010922,-76.74448,Health Centre,
-Mona,UWI Medical Library,UWI Medical Library is a library offering an extensive collection of print and digital resources for study and research.,18.011256,-76.745993,Library,
-Mona,Faculty of Medical Science,Faculty of Medical Science houses offices and administrative functions for its faculty or department.,18.009452,-76.746631,Faculty Office,
-Mona,Faculty of Law,Faculty of Law houses offices and administrative functions for its faculty or department.,18.008254,-76.748396,Faculty Office,
-Mona,Mona School of Business & Management(SOUTH),Mona School of Business & Management(SOUTH) houses offices and administrative functions for its faculty or department.,18.007868,-76.747401,Faculty Office,
-Mona,Normal Manley Law School,Normal Manley Law School houses offices and administrative functions for its faculty or department.,17.998632,-76.744089,Faculty Office,
-Mona,Main Library,Main Library is a library offering an extensive collection of print and digital resources for study and research.,18.006432,-76.745998,Library,
-Mona,Administrative Building,Administrative Building houses offices and administrative functions for its faculty or department.,18.00605,-76.747264,Faculty Office,
-Mona,Assembly Hall,Assembly Hall is a lecture hall used for teaching and academic presentations.,18.005422,-76.747291,Lecture Hall,
-Mona,The University Bookshop,"The University Bookshop is a bookstore selling textbooks, stationery, and university apparel.",18.004591,-76.747205,Bookstore,
-Mona,New Art Block,New Art Block houses offices and administrative functions for its faculty or department.,18.005131,-76.746803,Faculty Office,
-Mona,N-Block,N-Block houses offices and administrative functions for its faculty or department.,18.004866,-76.746175,Faculty Office,
-Mona,Sir Roy Augier Building,Sir Roy Augier Building houses offices and administrative functions for its faculty or department.,18.005295,-76.746218,Faculty Office,
-Mona,School of Education,School of Education houses offices and administrative functions for its faculty or department.,18.005315,-76.745676,Faculty Office,
-Mona,Language Laboratory,Language Laboratory is a laboratory specializing in language oratory research and experiments.,18.006427,-76.745966,Laboratory,
-Mona,Biology Lecture Theater,Biology Lecture Theater is a modern lecture theater equipped with audio-visual technology for large classes and events.,18.00632,-76.750419,Lecture Hall,
-Mona,Life Science Building/Department of Computing,Life Science Building/Department of Computing houses offices and administrative functions for its faculty or department.,18.00582,-76.749866,Faculty Office,
-Mona,FST Dean's Office,FST Dean's Office houses offices and administrative functions for its faculty or department.,18.00532,-76.749898,Faculty Office,
-Mona,Computer Science and Engineering Laboratory,Computer Science and Engineering Laboratory is a laboratory specializing in computer science and engineering oratory research and experiments.,18.005075,-76.750166,Laboratory,
-Mona,Mona School of Engineering Main Building,Mona School of Engineering Main Building houses offices and administrative functions for its faculty or department.,18.004856,-76.750671,Faculty Office,
-Mona,Physics/Chemistry Lecture Theater,Physics/Chemistry Lecture Theater is a modern lecture theater equipped with audio-visual technology for large classes and events.,18.004335,-76.749104,Lecture Hall,
-Mona,UWI Chapel,UWI Chapel houses offices and administrative functions for its faculty or department.,18.00356,-76.747978,Faculty Office,
-Mona,Old Dramatic Theatre,Old Dramatic Theatre is a modern lecture theater equipped with audio-visual technology for large classes and events.,18.003805,-76.747323,Lecture Hall,
-Mona,UWI(Mone) Garden & Ruins,UWI(Mone) Garden & Ruins houses offices and administrative functions for its faculty or department.,18.002871,-76.748503,Faculty Office,
-Mona,Mona Visitor's Lodge,Mona Visitor's Lodge houses offices and administrative functions for its faculty or department.,18.001601,-76.747747,Faculty Office,
-Mona,Founder's Park,Founder's Park houses offices and administrative functions for its faculty or department.,18.001861,-76.746685,Faculty Office,
-Mona,UWI Post Office Mona,UWI Post Office Mona houses offices and administrative functions for its faculty or department.,18.000443,-76.746846,Faculty Office,
-Mona,Marlene Hamilton,Marlene Hamilton houses offices and administrative functions for its faculty or department.,18.000458,-76.745939,Faculty Office,
-Mona,UWI Old Library,UWI Old Library is a library offering an extensive collection of print and digital resources for study and research.,18.000963,-76.744738,Library,
-Mona,Mona GeoInformatics Institute,Mona GeoInformatics Institute houses offices and administrative functions for its faculty or department.,17.999167,-76.744781,Faculty Office,
-Mona,Gibraltar Camp Road Park,Gibraltar Camp Road Park houses offices and administrative functions for its faculty or department.,18.003126,-76.743729,Faculty Office,
-Mona,George Alleyne Hall,"George Alleyne Hall is a recreational area for student gatherings, events, and relaxation.",17.998616,-76.744051,Recreational Area,
+campus,name,description,latitude,longitude,category,image,open_time,close_time,faculty
+St. Augustine,Engineering Block 8: Chemical Engineering,The Chemical Engineering Building houses lecture halls equipped for teaching and presentations.,10.63943,-61.400442,Lecture Hall,,,,Faculty of Engineering
+St. Augustine,Engineering Block 4: Mechanical Engineering Lab,The Mechanical Engineering Lab is a laboratory specializing in mechanical engineering research and experiments.,10.638375,-61.40012,Laboratory,,,,Faculty of Engineering
+St. Augustine,Engineering Block 5: Environmental & Fluids Labs,Environmental & Fluids Labs is a laboratory specializing in environmental & fluids s research and experiments.,10.638697,-61.400118,Laboratory,,,,Faculty of Engineering
+St. Augustine,Engineering Block 3: Mechanical Engineering,The Mechanical Engineering Building houses lecture halls equipped for teaching and presentations.,10.638629,-61.400394,Lecture Hall,,,,Faculty of Engineering
+St. Augustine,Engineering Stores & Services,"Engineering Stores & Services Provides engineering students with technical equipment, distribution of engineering materials and maintenance for specialized equipment.",10.638932,-61.400506,Bookstore,,,,Faculty of Engineering
+St. Augustine,Engineering Block 7: Petroleum GeoScience,"Petroleum GeoScience lecture hall is equipped for teaching and presentations.
+
+1st Floor:
+-Petroleum GeoScience Lecture Room.",10.639019,-61.400308,Lecture Hall,,,,Faculty of Engineering
+St. Augustine,Engineering Block 2: Civil Engineering (Imbert Building),"Imbert Building houses offices and administrative services.
+
+1st floor:
+-Geology Room.
+
+2nd floor:
+-Room 9 & 10.
+-CSA/CSB.
+-MD2.
+
+3rd floor:
+Room 11 & 12.
+MD3.",10.638742,-61.399683,Faculty Office,,8:00 am,4:00 pm,Faculty of Engineering
+St. Augustine,JFK Lecture Theater,"JFK Lecture Theater is a lecture hall equipped for teaching and presentations.
+
+Facilities:
+-Male Washroom.",10.638914,-61.39935,Lecture Hall,,,,
+St. Augustine,JFK Auditorium,"JFK Auditorium is a lecture hall equipped for teaching and presentations.
+
+Facilities:
+-Female  Washroom.",10.639204,-61.399485,Lecture Hall,,,,
+St. Augustine,Engineering Block 1: Kenneth S. Julien Building,"Kenneth S. Julien Building houses offices and administrative services.
+
+1st Floor:
+
+-Rooms 101-108.",10.639325,-61.399994,Faculty Office,,8:00 am,4:00 pm,Faculty of Engineering
+St. Augustine,Electrical & Computer Engineering,Electrical & Computer Engineering houses offices and administrative services.,10.639631,-61.400177,Faculty Office,,8:00 am,4:00 pm,Faculty of Engineering
+St. Augustine,Engineering Block 13: Max Richards Building,"The Max Richard Building houses lecture theatres and design rooms.
+
+Ground Floor:
+-Lecture Theatre 1.
+
+1st Floor:
+-Rooms 1-4.
+
+2nd Floor:
+-Lecture Theatre 2 & 3.
+-Design Room 1-3.",10.639805,-61.399882,Lecture Hall,,,,
+St. Augustine,Alma Jordan Library,"Alma Jordan Library is a library offering print and digital resources.
+
+Floor 1:
+-Circulation & Access Services (C&AS): Loans counter, Course Reserves, Engineering & Physical Sciences collection.
+-Library Accounts Unit: Payments for printing/photocopying and fines.
+-STARRS (St. Augustine Research & Reference Services): Public computer lab with 38 PCs, B/W and colour printers.
+
+Floor 2:
+-Agriculture & Life Sciences Collection: Core texts and journals for agricultural and biological sciences.
+-West Indian Materials & Special Collections Research Room: Non-circulating Caribbean and UWI archival materials; open to postgraduates and faculty by request.
+
+Floor 3:
+-Humanities Collection: Literature, history, philosophy, languages.
+-Multimedia Collection: Audio-visual materials, DVDs, microforms.
+-UEC (User Education Centre): Computer lab with 36 workstations, plus printers; supports instructional workshops and thesis checking.
+
+Floor 4:
+-Social Sciences Collection: Sociology, economics, psychology, political science.
+-Law Collection: Statutes, case law reports, legal journals.",10.639699,-61.39909,Library,,8:30 am,7:00 pm,
+St. Augustine,Food Science & Technology & Biotechnology,Food Science & Technology & Biotechnology houses offices and administrative services.,10.640005,-61.400866,Faculty Office,,8:00 am,4:00 pm,Faculty of Engineering
+St. Augustine,Department of Geomatics Engineering and Land Management,Department of Geomatics Engineering and Land Management houses offices and administrative services.,10.640274,-61.400488,Faculty Office,,8:00 am,4:00 pm,Faculty of Engineering
+St. Augustine,CARIRI,CARIRI houses offices and administrative services.,10.640408,-61.400944,Faculty Office,,8:00 am,4:00 pm,
+St. Augustine,TCB #2,"TCB 21, TCB 22, TCB 23: These Temporary Classrooms are located in the TCB #2 building and are used for tutorials and lectures.",10.640622,-61.400364,Lecture Hall,,,,
+St. Augustine,Faculty of Agriculture and Natural Sciences,Faculty of Agriculture and Natural Sciences houses offices and administrative services.,10.641091,-61.400335,Faculty Office,,8:00 am,4:00 pm,Faculty of Food and Agriculture
+St. Augustine,LRC Greens,"LRC Greens is a recreational area for events, relaxation, and gatherings.",10.640516,-61.39956,Recreational Area,,,,
+St. Augustine,U.W.I. Pool,U.W.I. Pool is a sports facility used for athletic training and competitions.,10.640912,-61.399825,Sports Facility,,,,
+St. Augustine,TCB #3,"TCB 31, TCB 32, TCB 33: These Temporary Classrooms are located in the TCB #3 building and are used for tutorials and lectures.",10.641175,-61.401271,Lecture Hall,,,,
+St. Augustine,Chemistry,Chemistry houses offices and administrative services.,10.641328,-61.401308,Faculty Office,,8:00 am,4:00 pm,Faculty of Science and Technology
+St. Augustine,Chemistry Washrooms,Chemistry Washrooms houses offices and administrative services.,10.641402,-61.401089,Restroom,,,,
+St. Augustine,Institute of International Relations,Institute of International Relations houses offices and administrative services.,10.641668,-61.40092,Faculty Office,,,,Faculty of Humanities and Education
+St. Augustine,Centre for Latin America and Caribbean,Centre for Latin America and Caribbean is a study area designed for collaborative learning and seminars.,10.641721,-61.400705,Study Area,,,,Humanities and Education
+St. Augustine,Faculty of Law & SALISES Building,Faculty of Law & SALISES Building houses offices and administrative services.,10.641929,-61.40103,Faculty Office,,8:00 am,4:00 pm,Faculty of Law
+St. Augustine,Chemistry C Buildings,"C1, C2, C3 : Thse Classrooms are located in the Chemistry building and are used for tutorials and lectures.",10.642077,-61.401652,Lecture Hall,,,,
+St. Augustine,Sir Frank Stocktake Building,Sir Frank Stocktake Building houses offices and administrative services.,10.643226,-61.401046,Faculty Office,,8:00 am,4:00 pm,
+St. Augustine,CARDI,CARDI houses offices and administrative services.,10.64349,-61.40229,Faculty Office,,8:00 am,4:00 pm,
+St. Augustine,Prof. John Spence Building,Prof. John Spence Building houses offices and administrative services.,10.644278,-61.401751,Faculty Office,,8:00 am,4:00 pm,
+St. Augustine,TTPost-UWI Post Shop,TTPost-UWI Post Shop houses offices and administrative services.,10.644842,-61.401872,Faculty Office,,8:00 am,4:00 pm,
+St. Augustine,UWI Bookstore,UWI Bookstore is a bookstore selling textbooks and university merchandise.,10.645079,-61.401864,Bookstore,,8:00 am,4:00 pm,
+St. Augustine,Admin Field (West),Admin Field (West) is a sports facility used for athletic training and competitions.,10.644318,-61.40108,Sports Facility,,,,
+St. Augustine,Administration (Old Admin Building),"The old UWI Administration Building houses offices and administrative services.
+- Bursary.
+- Campus Registrar's Office.
+- HR Appointments.",10.644318,-61.40022,Faculty Office,,8:00 am,4:00 pm,
+St. Augustine,Admin Field (East),Admin Field (East) is a sports facility used for athletic training and competitions.,10.64422,-61.399165,Sports Facility,,,,
+St. Augustine,Milner Hall,"Milner Hall is a recreational area for events, relaxation, and gatherings.",10.644286,-61.397846,Recreational Area,,,,
+St. Augustine,DAAGA Auditorium,DAAGA Auditorium is a lecture hall equipped for teaching and presentations.,10.643158,-61.398688,Lecture Hall,,,,
+St. Augustine,Centre of Language Learning,"Centre of Language Learning is a study area designed for collaborative learning and seminars.
+
+Ground Floor:
+IELTS Office
+Main Administrative Office
+Classrooms 1-7
+Language Labs
+Staff Rooms for Tutors
+
+Second Floor:
+Institute of Critical Thinking",10.64263,-61.398591,Study Area,,,,
+St. Augustine,UWI estate police,UWI estate police houses offices and administrative services.,10.642588,-61.399155,Faculty Office,,8:00 am,4:00 pm,
+St. Augustine,Human Resource Section,Human Resource Section houses offices and administrative services.,10.642222,-61.398538,Faculty Office,,8:00 am,4:00 pm,
+St. Augustine,Administration (Student Administration Building),"The new UWI Administration Building houses offices and administrative services.
+- Admissions (UG).
+- Alumni Association.
+- Examinations.
+- School of Graduate Studies and Research.
+- Student Advisory Services.
+- UWI Endowment Fund.",10.641792,-61.398463,Faculty Office,,8:00 am,4:00 pm,
+St. Augustine,UWI Marketing and Communications Office,UWI Marketing and Communications Office houses offices and administrative services.,10.641486,-61.399023,Faculty Office,,8:00 am,4:00 pm,
+St. Augustine,UWI Food Court,"UWI Food Court is a cafeteria serving meals, snacks, and beverages.",10.638969,-61.398227,Cafeteria,,,,
+St. Augustine,Rituals,Rituals is a snack shop offering quick bites and refreshments.,10.638787,-61.398683,Snack Shop,,7:00 am,7:00 pm,
+St. Augustine,Linda's Bakery,"Linda's Bakery is a cafeteria serving meals, snacks, and beverages.",10.638653,-61.398626,Study Area,,6:00 am,8:00 pm,
+St. Augustine,KFC UWI,KFC UWI is a snack shop offering quick bites and refreshments.,10.639093,-61.398052,Snack Shop,,10:00 am,10:00 pm,
+St. Augustine,Subway U.W.I,Subway U.W.I is a snack shop offering quick bites and refreshments.,10.638977,-61.397996,Snack Shop,,10:00 am,10:00 pm,
+St. Augustine,Campus mini mart,Campus mini mart is a snack shop offering quick bites and refreshments.,10.638932,-61.397645,Snack Shop,,10:00 am,8:00 pm,
+St. Augustine,Student Activity Centre,Student Activity Centre is a study area designed for collaborative learning and seminars.,10.639541,-61.397803,Study Area,,,,
+St. Augustine,Faculty of Social Sciences/Faculty of Human & Education,Faculty of Social Sciences/Faculty of Human & Education houses offices and administrative services.,10.639646,-61.398481,Faculty Office,,8:00 am,4:00 pm,Faculty of Social Sciences
+St. Augustine,Department of Management Studies,Department of Management Studies houses offices and administrative services.,10.640255,-61.398747,Faculty Office,,8:00 am,4:00 pm,
+St. Augustine,Learning Resource Centre,Learning Resource Centre is a study area designed for collaborative learning and seminars.,10.640514,-61.398884,Study Area,,,,
+St. Augustine,Trinity Hall,"Trinity Hall is a recreational area for events, relaxation, and gatherings.",10.640121,-61.397865,Recreational Area,,,,
+St. Augustine,Tandori Hut,Tandori Hut is a snack shop offering quick bites and refreshments.,10.639525,-61.397661,Snack Shop,,11:00 am,7:00 pm,
+St. Augustine,SAC Republic Bank ATM,SAC Republic Bank ATM provides ATM services for cash withdrawals.,10.639301,-61.397682,ATM,,,,
+St. Augustine,Veg Out,Veg Out is a snack shop offering quick bites and refreshments.,10.639293,-61.3978,Snack Shop,,7:00 am,6:00 pm,
+St. Augustine,Canada Hall,"Canada Hall is a recreational area for events, relaxation, and gatherings.",10.638065,-61.397065,Recreational Area,,,,
+St. Augustine,University Cemetery,University Cemetery houses offices and administrative services.,10.637835,-61.398015,Recreational Area,,,,
+St. Augustine,Sir Frank Worrell Field,Sir Frank Worrell Field is a sports facility used for athletic training and competitions.,10.639322,-61.395984,Sports Facility,,,,
+St. Augustine,Faculty of Sport(SPEC),Faculty of Sport(SPEC) houses offices and administrative services.,10.640366,-61.395783,Faculty Office,,8:00 am,4:00 pm,Faculty of Sport
+St. Augustine,Clinic,Clinic is a health centre providing medical and emergency services.,10.640822,-61.398117,Health Centre,,,,
+St. Augustine,Teaching and Learning Complex(TLC),Teaching and Learning Complex(TLC) is a Lecture Hall for Lectures and Tutorials.,10.641568,-61.396727,Lecture Hall,,,,
+St. Augustine,Office of the Deputy Principal,Office of the Deputy Principal houses offices and administrative services.,10.641318,-61.399031,Faculty Office,,8:30 am,4:30 pm,
+St. Augustine,JFK Shuttle Stop,JFK Shuttle Stop is a shuttle stop for campus transport.,10.638713,-61.398988,Shuttle Stop,,,,
+St. Augustine,SAC Shuttle Stop,SAC Shuttle Stop is a shuttle stop for campus transport.,10.639409,-61.397476,Shuttle Stop,,,,
+St. Augustine,LRC Greens Shuttle Stop,LRC Greens Shuttle Stop is a shuttle stop for campus transport.,10.640925,-61.399232,Shuttle Stop,,,,
+St. Augustine,UWI Bus Stop,UWI Bus Stop is a bus stop servicing local routes.,10.644774,-61.399924,Bus Stop,,,,
+St. Augustine, FST classroom,"FST classrooms used for tutorials and lectures.
+
+Ground Floor:
+FST 113
+FST 114
+
+3nd Floor:
+-FST 412
+-FST 413",10.641189,-61.400303,Lecture Hall,,,,
+St. Augustine, FST CL Chemistry Teaching Laboratories,"FST CL2, CL3, CL4, CL5: These Chemistry Teaching Laboratories are located within the Chemistry Building.",10.642135,-61.401335,Laboratory,,,,Faculty of Science and Technology
+St. Augustine, FST CSL1 & CSL2,FST Computer Lab classroom used for tutorials and lectures.,10.641397,-61.400858,Laboratory,,,,Faculty of Science and Technology
+St. Augustine, FST CSW, Located on the ground floor of the Chemistry Building.,10.642056,-61.40148,Lecture Hall,,,,Faculty of Science and Technology
+St. Augustine, FST CSE,Located on the ground floor of the Chemistry Building.,10.642053,-61.401483,Lecture Hall,,,,Faculty of Science and Technology
+St. Augustine, FST CAL,Located on the ground floor of the Chemistry Building.,10.641924,-61.401748,Laboratory,,,,Faculty of Science and Technology
+St. Augustine, FST Life Sciences laboratories,"FST LS1, LS2 and LS3 located on the ground floor of the Natural Sciences Building.",10.641225,-61.4003,Laboratory,,,,Faculty of Science and Technology
+St. Augustine, FST DLS Undergraduate Biotechnology Teaching Lab,"Located within the Department of Life Sciences, likely on the ground floor of the Natural Sciences Building.",10.641225,-61.4003,Laboratory,,,,Faculty of Science and Technology
+St. Augustine, FST 325 Radiation Laboratory,This laboratory is part of the Physics Department's facilities.,10.641096,-61.400378,Laboratory,,,,Faculty of Science and Technology
+St. Augustine, FST Chemistry Postgraduate Labs,These labs are housed within the Chemistry Department.,10.642003,-61.40162,Laboratory,,,,Faculty of Science and Technology
+Cave Hill,The Golden Stool New Administration Building,The Golden Stool New Administration Building houses offices and administrative services.,13.133078,-59.627786,Faculty Office,,,,
+Cave Hill,Faculty of Social Sciences,Faculty of Social Sciences houses offices and administrative services.,13.133303,-59.628811,Faculty Office,,,,Faculty of Social Sciences
+Cave Hill,Sidney Martin Library,Sidney Martin Library is a library offering print and digital resources.,13.133434,-59.629996,Library,,,,
+Cave Hill,The Mount Restaurant,"The Mount Restaurant is a cafeteria serving meals, snacks, and beverages.",13.134405,-59.631198,Cafeteria,,,,
+Cave Hill,Roy Marshall Teaching Complex,Roy Marshall Teaching Complex is a lecture hall equipped for teaching and presentations.,13.134578,-59.629052,Lecture Hall,,,,
+Cave Hill,3 W's Oval,3 W's Oval is a sports facility used for athletic training and competitions.,13.135607,-59.63078,Sports Facility,,,,
+Cave Hill,3 W's Oval Pavilion,3 W's Oval Pavilion is a sports facility used for athletic training and competitions.,13.136025,-59.631338,Sports Facility,,,,
+Cave Hill,Frank Worrel Hall,"Frank Worrel Hall is a recreational area for events, relaxation, and gatherings.",13.136197,-59.629734,Recreational Area,,,,
+Cave Hill,Errol Barrow Centre for Creative Imagination,"Errol Barrow Centre for Creative Imagination is a cafeteria serving meals, snacks, and beverages.",13.136798,-59.631692,Cafeteria,,,,
+Cave Hill,Caricom Research Building,Caricom Research Building houses offices and administrative services.,13.137237,-59.630662,Faculty Office,,,,
+Cave Hill,The Alister McIntyre Building,The Alister McIntyre Building houses offices and administrative services.,13.136923,-59.62983,Faculty Office,,,,
+Cave Hill,Campus Office of Planning and Projects,Campus Office of Planning and Projects houses offices and administrative services.,13.13744,-59.630168,Faculty Office,,,,
+Cave Hill,School of Business,School of Business houses offices and administrative services.,13.13778,-59.630565,Faculty Office,,,,Faculty of Social Sciences
+Cave Hill,Keith Hunte Hall,"Keith Hunte Hall is a recreational area for events, relaxation, and gatherings.",13.132963,-59.632708,Recreational Area,,,,
+Cave Hill,TNT Barbeque hut,"TNT Barbeque hut is a cafeteria serving meals, snacks, and beverages.",13.132569,-59.63156,Cafeteria,,,,
+Cave Hill,Big Bite,Big Bite is a snack shop offering quick bites and refreshments.,13.131963,-59.631705,Snack Shop,,,,
+Cave Hill,Nelson Mandela Freedom Park,Nelson Mandela Freedom Park houses offices and administrative services.,13.133366,-59.631627,Faculty Office,,,,
+Cave Hill,Post Graduate Teaching Complex,Post Graduate Teaching Complex is a lecture hall equipped for teaching and presentations.,13.134604,-59.632807,Lecture Hall,,,,
+Mona,August Town Football Club,August Town Football Club is a sports facility used for athletic training and competitions.,17.996392,-76.740983,Sports Facility,,,,
+Mona,Norman Manley Law School,Norman Manley Law School houses offices and administrative services.,17.997331,-76.743659,Faculty Office,,,,
+Mona,Cricket Oval,Cricket Oval is a sports facility used for athletic training and competitions.,17.997116,-76.740816,Sports Facility,,,,
+Mona,Weights Room,Weights Room houses offices and administrative services.,17.997106,-76.740642,Faculty Office,,,,
+Mona,The Sir Frank Worrell Cricket Ground,The Sir Frank Worrell Cricket Ground is a sports facility used for athletic training and competitions.,17.997782,-76.740599,Sports Facility,,,,
+Mona,Usain Bolt Track,Usain Bolt Track is a sports facility used for athletic training and competitions.,18.00044,-76.740288,Sports Facility,,,,
+Mona,Student Union,Student Union houses offices and administrative services.,18.000731,-76.743453,Faculty Office,,,,
+Mona,Amphitheatre,Amphitheatre is a lecture hall equipped for teaching and presentations.,18.000757,-76.742764,Lecture Hall,,,,
+Mona,UWI Gym,UWI Gym is a sports facility used for athletic training and competitions.,18.000558,-76.743391,Sports Facility,,,,
+Mona,Rex Nettleford Hall,"Rex Nettleford Hall is a recreational area for events, relaxation, and gatherings.",18.002869,-76.74194,Recreational Area,,,,
+Mona,Hope valley Experimental School,Hope valley Experimental School houses offices and administrative services.,18.00332,-76.739676,Faculty Office,,,,
+Mona,Sir John Golding Rehabilitation Center,Sir John Golding Rehabilitation Center is a study area designed for collaborative learning and seminars.,18.005185,-76.740194,Study Area,,,,
+Mona,United Theological College of the West Indies,United Theological College of the West Indies houses offices and administrative services.,18.007118,-76.741334,Faculty Office,,,,
+Mona,Irvine Hall,"Irvine Hall is a recreational area for events, relaxation, and gatherings.",18.005892,-76.742898,Recreational Area,,,,
+Mona,Scotiabank Centennial Accident & Emergency Unit,Scotiabank Centennial Accident & Emergency Unit is a health centre providing medical and emergency services.,18.010682,-76.743008,Health Centre,,,,
+Mona,University Hospital of the West Indies,University Hospital of the West Indies is a health centre providing medical and emergency services.,18.010922,-76.74448,Health Centre,,,,
+Mona,UWI Medical Library,UWI Medical Library is a library offering print and digital resources.,18.011256,-76.745993,Library,,,,
+Mona,Faculty of Medical Science,Faculty of Medical Science houses offices and administrative services.,18.009452,-76.746631,Faculty Office,,,,Faculty of Law
+Mona,Faculty of Law,Faculty of Law houses offices and administrative services.,18.008254,-76.748396,Faculty Office,,,,
+Mona,Mona School of Business & Management(SOUTH),Mona School of Business & Management(SOUTH) houses offices and administrative services.,18.007868,-76.747401,Faculty Office,,,,
+Mona,Normal Manley Law School,Normal Manley Law School houses offices and administrative services.,17.998632,-76.744089,Faculty Office,,,,
+Mona,Main Library,Main Library is a library offering print and digital resources.,18.006432,-76.745998,Library,,,,
+Mona,Administrative Building,Administrative Building houses offices and administrative services.,18.00605,-76.747264,Faculty Office,,,,
+Mona,Assembly Hall,Assembly Hall is a lecture hall equipped for teaching and presentations.,18.005422,-76.747291,Lecture Hall,,,,
+Mona,The University Bookshop,The University Bookshop is a bookstore selling textbooks and university merchandise.,18.004591,-76.747205,Bookstore,,,,
+Mona,New Art Block,New Art Block houses offices and administrative services.,18.005131,-76.746803,Faculty Office,,,,
+Mona,N-Block,N-Block houses offices and administrative services.,18.004866,-76.746175,Faculty Office,,,,
+Mona,Sir Roy Augier Building,Sir Roy Augier Building houses offices and administrative services.,18.005295,-76.746218,Faculty Office,,,,
+Mona,School of Education,School of Education houses offices and administrative services.,18.005315,-76.745676,Faculty Office,,,,
+Mona,Language Laboratory,Language Laboratory is a laboratory specializing in language research and experiments.,18.006427,-76.745966,Laboratory,,,,
+Mona,Biology Lecture Theater,Biology Lecture Theater is a lecture hall equipped for teaching and presentations.,18.00632,-76.750419,Lecture Hall,,,,
+Mona,Life Science Building/Department of Computing,Life Science Building/Department of Computing houses offices and administrative services.,18.00582,-76.749866,Faculty Office,,,,
+Mona,FST Dean's Office,FST Dean's Office houses offices and administrative services Contact 1(868) 662-2002 Ext  84525 ,18.00532,-76.749898,Faculty Office,,,,
+Mona,Computer Science and Engineering Laboratory,Computer Science and Engineering Laboratory is a laboratory specializing in computer science and engineering research and experiments.,18.005075,-76.750166,Laboratory,,,,
+Mona,Mona School of Engineering Main Building,Mona School of Engineering Main Building houses offices and administrative services.,18.004856,-76.750671,Faculty Office,,,,
+Mona,Physics/Chemistry Lecture Theater,Physics/Chemistry Lecture Theater is a lecture hall equipped for teaching and presentations.,18.004335,-76.749104,Lecture Hall,,,,
+Mona,UWI Chapel,UWI Chapel houses offices and administrative services.,18.00356,-76.747978,Faculty Office,,,,
+Mona,Old Dramatic Theatre,Old Dramatic Theatre is a lecture hall equipped for teaching and presentations.,18.003805,-76.747323,Lecture Hall,,,,
+Mona,UWI(Mone) Garden & Ruins,UWI(Mone) Garden & Ruins houses offices and administrative services.,18.002871,-76.748503,Faculty Office,,,,
+Mona,Mona Visitor's Lodge,Mona Visitor's Lodge houses offices and administrative services.,18.001601,-76.747747,Faculty Office,,,,
+Mona,Founder's Park,Founder's Park houses offices and administrative services.,18.001861,-76.746685,Faculty Office,,,,
+Mona,UWI Post Office Mona,UWI Post Office Mona houses offices and administrative services.,18.000443,-76.746846,Faculty Office,,,,
+Mona,Marlene Hamilton,Marlene Hamilton houses offices and administrative services.,18.000458,-76.745939,Faculty Office,,,,
+Mona,UWI Old Library,UWI Old Library is a library offering print and digital resources.,18.000963,-76.744738,Library,,,,
+Mona,Mona GeoInformatics Institute,Mona GeoInformatics Institute houses offices and administrative services.,17.999167,-76.744781,Faculty Office,,,,
+Mona,Gibraltar Camp Road Park,Gibraltar Camp Road Park houses offices and administrative services.,18.003126,-76.743729,Faculty Office,,,,
+Mona,George Alleyne Hall,"George Alleyne Hall is a recreational area for events, relaxation, and gatherings.",17.998616,-76.744051,Recreational Area,,,,
+Mt. Hope,Vet School,Vet School houses offices and administrative services.,10.644336,-61.424974,Faculty Office,,,,Faculty of Medical Sciences
+Mt. Hope,The Large Animal Hospital,The Large Animal Hospital is a health centre providing medical and emergency services.,10.64476,-61.4254,Health Centre,,,,Faculty of Medical Sciences
+Mt. Hope,Nursing School,Nursing School houses offices and administrative services.,10.646585,-61.424963,Faculty Office,,,,Faculty of Medical Sciences
+Mt. Hope,UWI Medical Sciences Library,UWI Medical Sciences Library is a library offering print and digital resources.,10.645106,-61.42356,Library,,,,Faculty of Medical Sciences
+Mt. Hope,Medical School,Medical School houses offices and administrative services.,10.646213,-61.422683,Faculty Office,,,,Faculty of Medical Sciences
+Mt. Hope,Pharmacy School,Pharmacy School houses offices and administrative services.,10.644776,-61.423936,Faculty Office,,,,Faculty of Medical Sciences
+Mt. Hope,Dentist School,Dentist School houses offices and administrative services.,10.647565,-61.425043,Faculty Office,,,,Faculty of Medical Sciences
+Mt. Hope,Anatomy Laboratory,Anatomy Laboratory is a laboratory specializing in anatomy research and experiments.,10.645657,-61.423115,Laboratory,,,,Faculty of Medical Sciences
+Mt. Hope,Centre for Medical Sciences Education,Centre for Medical Sciences Education is a study area designed for collaborative learning and seminars.,10.644929,-61.423834,Study Area,,,,Faculty of Medical Sciences
+Mt. Hope,UWI School of Nursing,UWI School of Nursing houses offices and administrative services.,10.646129,-61.42367,Faculty Office,,,,Faculty of Medical Sciences
+Mt. Hope,Shuttle Stop,Shuttle Stop is a shuttle stop for campus transport.,10.645187,-61.423654,Shuttle Stop,,,,Faculty of Medical Sciences
+Mt. Hope,Student Mart,Student Mart is a snack shop offering quick bites and refreshments.,10.646044,-61.422074,Snack Shop,,,,Faculty of Medical Sciences
+Mt. Hope,Arabian Kitchen,"Arabian Kitchen is a cafeteria serving meals, snacks, and beverages.",10.646619,-61.421736,Cafeteria,,,,Faculty of Medical Sciences
+Mt. Hope,Seminar Rooms,Seminar Rooms is a lecture hall equipped for teaching and presentations.,10.645854,-61.422793,Lecture Hall,,,,Faculty of Medical Sciences
+Mt. Hope,JGI Dormitory,"JGI Dormitory is a recreational area for events, relaxation, and gatherings.",10.645678,-61.419089,Recreational Area,,,,Faculty of Medical Sciences
+Mt. Hope,Amphitheatre D,Amphitheatre D is a lecture hall equipped for teaching and presentations.,10.647294,-61.424831,Lecture Hall,,,,Faculty of Medical Sciences
+Mt. Hope,Amphitheatre A,"Amphitheatre A is a lecture hall equipped for teaching and presentations.
+- Washrooms.",10.645512,-61.423431,Lecture Hall,,,,Faculty of Medical Sciences
+Mt. Hope,Amphitheatre B,"Amphitheatre B is a lecture hall equipped for teaching and presentations.
+- Washrooms.",10.645786,-61.423638,Lecture Hall,,,,Faculty of Medical Sciences
+Mt. Hope,Anatomy Laboratory,"Anatomy Laboratory is a laboratory specializing in anatomy research and experiments.
+2nd floor:
+- Physiology Lab
+- Biochemistry Lab",10.645657,-61.423115,Laboratory,,,,Faculty of Medical Sciences
+Mt. Hope,Worship Hall,Worship Hall is a hall for religious and spiritual gatherings.,10.646498,-61.423227,Recreational Area,,,,Faculty of Medical Sciences
+Mt. Hope,Old School of Advanced Nursing (SANE),"Old School of Advanced Nursing (SANE) houses offices and administrative services.
+- Washrooms.",10.645767,-61.424035,Faculty Office,,,,Faculty of Medical Sciences
+Mt. Hope,Mt. Hope Main Hospital,"Mt. Hope Main Hospital serves as the main hospital facility.
+- UWI/MT Hope Book Store
+- Washrooms
+- Cafeteria
+- Rituals.",10.646698,-61.423834,Health Centre,,,,Faculty of Medical Sciences
+Mt. Hope,Seminar Rooms,"Seminar Rooms is a lecture hall equipped for teaching and presentations.
+- Seminar 1
+- Seminar 2
+- Seminar 3
+- Seminar 4
+- Seminar 5
+- Seminar 6
+- Seminar 7
+- Seminar 8
+- Seminar 9
+- Seminar 10
+- Seminar 11
+- Seminar 12",10.645854,-61.422793,Lecture Hall,,,,Faculty of Medical Sciences
+Mt. Hope,Students' Recreation Centre,"Students' Recreation Centre is a recreational area for events, relaxation, and gatherings.
+- Washrooms
+- Gym
+- Computer Lab
+- Seminar Rooms
+- Lounge Area.",10.645272,-61.419792,Recreational Area,,,,Faculty of Medical Sciences
+Mt. Hope,Research Office,Research Office is an administrative office supporting research activities.,10.646042,-61.423649,Admissions,,,,Faculty of Medical Sciences
+Mt. Hope,School of Pharmacy,"Pharmacy School houses offices and administrative services.
+- Washroom.",10.645311,-61.424029,Faculty Office,,,,Faculty of Medical Sciences
+Mt. Hope,Administration,Administration houses administrative offices and services.,10.645085,-61.424078,Admissions,,,,Faculty of Medical Sciences
+Mt. Hope,Dentist School,"Dentist School houses offices and administrative services.
+- Washroom.",10.646553,-61.424874,Faculty Office,,,,Faculty of Medical Sciences
+Mt. Hope,Student Mart,"Student Mart is a snack shop offering quick bites and refreshments.
+- Rooftop Cafe
+- Washroom
+- Cafeteria.",10.646049,-61.422084,Snack Shop,,,,Faculty of Medical Sciences
+Mt. Hope,Laboratories and Emergency,"Laboratories and Emergency centre provides laboratory and emergency services.
+- Washroom.",10.646972,-61.423077,Health Centre,,,,Faculty of Medical Sciences
+Mt. Hope,"Mortuary & Pharmacy, Sterilization & Operating Theatres","Mortuary & Pharmacy, Sterilization & Operating Theatres provides mortuary, pharmacy, sterilization, and surgical services.
+- Mortuary
+- Pharmacy
+- Sterilization
+- Operating Theatres.",10.647041,-61.422565,Health Centre,,,,Faculty of Medical Sciences
+Mt. Hope,Children's Hospital,Children's Hospital is a health centre providing paediatric medical and emergency services.,10.647259,-61.421613,Health Centre,,,,Faculty of Medical Sciences
+Mt. Hope,General Stores & Workshops,"General Stores & Workshops serves as general retail and maintenance workshops.
+- General Stores
+- Workshops.",10.647349,-61.420822,Bookstore,,,,Faculty of Medical Sciences
+Mt. Hope,Mt. Hope's Women's Hospital,Mt. Hope's Women's Hospital is a health centre providing women's medical services.,10.649323,-61.421846,Health Centre,,,,Faculty of Medical Sciences

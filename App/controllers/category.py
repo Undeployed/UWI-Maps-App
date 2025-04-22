@@ -3,9 +3,9 @@ from App.models import Category
 from App.database import db
 from sqlalchemy.exc import SQLAlchemyError
 
-def create_category(name):
+def create_category(name, color):
     try:
-        category = Category(name)
+        category = Category(name, color)
         db.session.add(category)
         db.session.commit()
         return category

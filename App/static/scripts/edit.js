@@ -18,13 +18,32 @@ const MarkerManager = {
       coordLng: document.getElementById('coord-lng'),
       notifBar: document.getElementById("notification-bar"),
       categorySelect: document.getElementById('marker-form-category'),
+      facultySelect: document.getElementById('marker-form-faculty'),
       nameInput: document.getElementById('marker-form-name'),
       descInput: document.getElementById('marker-form-description'),
       imgInput: document.getElementById('marker-form-image'),
       formBtn: document.getElementById('form-add-btn'),
       formTitle: document.getElementById('marker-form-title'),
+      hoursSection: document.getElementById('business-hours-section'),
+      hoursCheckbox: document.getElementById('has-business-hours'),
     },
-  
+    
+    // Helper function to filling time slot form
+    convertTo24Hour(timeStr) {
+      if (!timeStr || timeStr == "") return null; // Return empty if None/null/undefined
+    
+      const [time, modifier] = timeStr.split(" ");
+      let [hours, minutes] = time.split(":");
+    
+      hours = parseInt(hours, 10);
+      if (modifier.toLowerCase() === "pm" && hours !== 12) hours += 12;
+      if (modifier.toLowerCase() === "am" && hours === 12) hours = 0;
+    
+      return `${String(hours).padStart(2, "0")}:${minutes}`;
+    },
+    
+
+    
     // Start the process to add a new marker
     startAdding() {
       this.cancel(); // reset state first
@@ -56,6 +75,7 @@ const MarkerManager = {
       if (!marker) return;
   
       this.elements.markerForm.action = `/marker/update/${markerId}`;
+      this.clearForm();
       this.fillForm(marker);
       this.toggleForm(true);
     },
@@ -71,9 +91,15 @@ const MarkerManager = {
       this.elements.imgInput.value = marker.image;
       this.elements.formBtn.textContent = "Update Marker";
       this.elements.formTitle.textContent = "Update Marker";
+      this.elements.hoursCheckbox.checked = marker.open_time != null;
+      this.toggleOfficeHours(marker);
   
       this.elements.categorySelect.value = marker.category.id;
+      this.elements.facultySelect.value = marker.faculty?.id || "";
+      console.log(marker.faculty)
+      
       M.FormSelect.init(this.elements.categorySelect); // re-init Materialize select
+      M.FormSelect.init(this.elements.facultySelect); // re-init Materialize select
     },
   
     // Reset form inputs to blank/default values
@@ -88,7 +114,23 @@ const MarkerManager = {
       this.elements.categorySelect.value = 1;
       this.elements.formBtn.textContent = "Add Marker";
       this.elements.formTitle.textContent = "Add New Marker";
+      this.elements.hoursCheckbox.checked = false;
+      this.toggleOfficeHours();
       M.FormSelect.init(this.elements.categorySelect);
+    },
+
+    // Toggle Office ours section in form
+    toggleOfficeHours(marker) {
+      this.elements.hoursSection.style.display = this.elements.hoursCheckbox.checked ? 'block' : 'none';
+  
+      // Clear values if hidden
+      if (!this.elements.hoursCheckbox.checked) {
+          document.getElementById('marker-open-time').value = '';
+          document.getElementById('marker-close-time').value = '';
+      } else {
+          document.getElementById('marker-open-time').value = this.convertTo24Hour(marker.open_time);
+          document.getElementById('marker-close-time').value = this.convertTo24Hour(marker.close_time);
+      }
     },
   
     // Show/hide the marker form
@@ -195,6 +237,7 @@ const MarkerManager = {
   
     document.getElementById('info-title').innerText = marker.name;
     document.getElementById('info-description').innerText = marker.description || 'No description.';
+    document.getElementById('info-faculty').innerText = marker.faculty?.name || 'No Faculty';
     document.getElementById('info-category').innerText = marker.category?.name || 'Uncategorized';
     document.getElementById('info-coords').innerText = `(${marker.latitude}, ${marker.longitude})`;
   
@@ -204,7 +247,7 @@ const MarkerManager = {
     if (marker.updates?.length) {
       marker.updates.slice().reverse().forEach((u, i) => {
         const li = document.createElement('li');
-        li.innerText = `[#${marker.updates.length - i}]\nAdmin: ${u.user.username}\nDate: ${u.date}\n[Overview]: ${u.description}`;
+        li.innerText = `[#${marker.updates.length - i}]\nAdmin: ${u.user.username}\nDate: ${u.date}\n[Overview]:\n${u.description}`;
         updateList.appendChild(li);
       });
     } else {
@@ -215,4 +258,6 @@ const MarkerManager = {
   
     document.getElementById('marker-info-panel').classList.remove('hidden');
   }
+
+
   
