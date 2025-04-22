@@ -19,36 +19,3 @@ class AdminView(ModelView):
 def setup_admin(app):
     admin = Admin(app, name='FlaskMVC', template_mode='bootstrap3')
     admin.add_view(AdminView(User, db.session))
-    
-    # Add debug route
-    if os.getenv('ENV') == "DEVELOPMENT":
-        @app.route('/debug-db')
-        def debug_db():
-            try:
-                # Get basic database info
-                db_uri = app.config.get('SQLALCHEMY_DATABASE_URI', 'Not configured')
-                tables = []
-                
-                # Only try to get tables if database is connected
-                if db.engine:
-                    tables = db.engine.table_names()
-                    
-                    # Test simple query if you have a User model
-                    user_count = User.query.count() if 'user' in tables else 0
-                else:
-                    user_count = 0
-                
-                return jsonify({
-                    'status': 'success',
-                    'database_uri': db_uri,
-                    'database_driver': str(db.engine.driver) if db.engine else None,
-                    'tables': tables,
-                    'user_count': user_count,
-                    'is_postgresql': 'postgresql' in db_uri.lower() if db_uri else False
-                })
-            except Exception as e:
-                return jsonify({
-                    'status': 'error',
-                    'error': str(e),
-                    'database_uri': app.config.get('SQLALCHEMY_DATABASE_URI', 'Not configured')
-                }), 500

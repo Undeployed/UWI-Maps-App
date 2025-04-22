@@ -9,7 +9,6 @@ def load_config(app, overrides):
     
     db_uri = os.getenv("SQLALCHEMY_DATABASE_URI", "sqlite:///temp-database.db")
     if db_uri:
-        print(f"Overriding DB URI with {db_uri}")
         app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
         
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -23,3 +22,5 @@ def load_config(app, overrides):
     app.config['FLASK_ADMIN_SWATCH'] = 'darkly'
     for key in overrides:
         app.config[key] = overrides[key]
+    
+    print(f"DB URI: {app.config['SQLALCHEMY_DATABASE_URI']}")

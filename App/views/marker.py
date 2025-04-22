@@ -9,7 +9,7 @@ from App.controllers import (
 marker_views = Blueprint('marker_views', __name__, template_folder='../templates')
 
 # Add Marker to Campus
-@marker_views.route('/marker/add/<campus_id>', methods=['POST'])
+@marker_views.route('/marker/add/<int:campus_id>', methods=['POST'])
 @jwt_required()
 def add_marker(campus_id):
     lat = request.form.get('lat')
@@ -41,7 +41,7 @@ def add_marker(campus_id):
 
 
 # Update Marker
-@marker_views.route('/marker/update/<marker_id>', methods=['POST'])
+@marker_views.route('/marker/update/<int:marker_id>', methods=['POST'])
 @jwt_required()
 def update_maker_route(marker_id):
     if update_marker(user_id=current_user.id ,marker_id=marker_id, data=request.form) :
@@ -53,7 +53,7 @@ def update_maker_route(marker_id):
     
 
 # Delete Marker
-@marker_views.route('/marker/delete/<marker_id>', methods=['POST'])
+@marker_views.route('/marker/delete/<int:marker_id>', methods=['POST'])
 @jwt_required()
 def delete_marker_route(marker_id):
     if delete_marker(marker_id) :

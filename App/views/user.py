@@ -34,7 +34,7 @@ def create_user_action():
 
 # User(Admin) edit page
 @user_views.route('/admin/edit', methods=['GET'])
-@user_views.route('/admin/edit/<campus_id>', methods=['GET'])
+@user_views.route('/admin/edit/<int:campus_id>', methods=['GET'])
 @jwt_required()
 def edit_page(campus_id=1):
     return render_template('edit.html',

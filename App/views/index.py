@@ -13,11 +13,10 @@ from App.controllers import (
 
 index_views = Blueprint('index_views', __name__, template_folder='../templates')
 
-if os.getenv('ENV') == 'DEVELOPMENT':
-    @index_views.route('/init', methods=['GET'])
-    def init():
-        initialize()
-        return redirect(url_for('index_views.index_page'))
+@index_views.route('/init', methods=['GET'])
+def init():
+    initialize()
+    return redirect(url_for('index_views.index_page'))
 
 @index_views.route('/health', methods=['GET'])
 def health_check():
@@ -26,7 +25,7 @@ def health_check():
 
 # Home Page
 @index_views.route('/', methods=['GET'])
-@index_views.route('/<campus_id>', methods=['GET'])
+@index_views.route('/<int:campus_id>', methods=['GET'])
 def index_page(campus_id=1):
     category_filters = request.args.getlist('category')
     faculty_filters = request.args.getlist('faculty')
