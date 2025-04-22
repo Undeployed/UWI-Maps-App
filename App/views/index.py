@@ -1,3 +1,4 @@
+import os
 from flask import Blueprint, redirect, render_template, request, send_from_directory, jsonify, flash, url_for
 from flask_jwt_extended import jwt_required, current_user
 from App.controllers import (
@@ -12,11 +13,11 @@ from App.controllers import (
 
 index_views = Blueprint('index_views', __name__, template_folder='../templates')
 
-
-@index_views.route('/init', methods=['GET'])
-def init():
-    initialize()
-    return redirect(url_for('index_views.index_page'))
+if os.getenv('ENV') == 'DEVELOPMENT':
+    @index_views.route('/init', methods=['GET'])
+    def init():
+        initialize()
+        return redirect(url_for('index_views.index_page'))
 
 @index_views.route('/health', methods=['GET'])
 def health_check():
@@ -30,8 +31,6 @@ def index_page(campus_id=1):
     category_filters = request.args.getlist('category')
     faculty_filters = request.args.getlist('faculty')
     search_query = request.args.get('query', '').strip().lower()
-    
-    print("Selected faculties:", faculty_filters)
     
     # Filter by Categories
     if category_filters:

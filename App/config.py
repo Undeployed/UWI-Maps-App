@@ -1,5 +1,4 @@
 import os
-from datetime import timedelta
 
 def load_config(app, overrides):
     if os.path.exists(os.path.join('./App', 'custom_config.py')):
@@ -7,6 +6,12 @@ def load_config(app, overrides):
     else:
         app.config.from_object('App.default_config')
     app.config.from_prefixed_env()
+    
+    db_uri = os.getenv("SQLALCHEMY_DATABASE_URI", "sqlite:///temp-database.db")
+    if db_uri:
+        print(f"Overriding DB URI with {db_uri}")
+        app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
+        
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.config['PREFERRED_URL_SCHEME'] = 'https'
@@ -17,5 +22,4 @@ def load_config(app, overrides):
     app.config["JWT_COOKIE_CSRF_PROTECT"] = False
     app.config['FLASK_ADMIN_SWATCH'] = 'darkly'
     for key in overrides:
-        print(key)
         app.config[key] = overrides[key]
