@@ -1,6 +1,6 @@
 <!-- templates/index.html -->
 {% extends "layout.html" %}
-{% block title %}UWI Map{% endblock %}
+{% block title %}UWI Maps{% endblock %}
 
 {% block head_links %}
 <!-- Leaflet CSS -->
@@ -34,21 +34,30 @@
           
           <hr class="filter-divider" />
           
-          <p>
-            <label style="cursor: pointer; color: #007bff;" onclick="unselectAllCategories()">
-              <i class="material-icons" style="vertical-align: middle;">clear_all</i>
-              <span style="margin-left: 5px;">Unselect All</span>
-            </label>
-          </p>
-          {% for category in categories %}
-            <p><label>
-              <input type="checkbox" name="category" value="{{ category.id }}"
-                {% if category.id|string in request.args.getlist('category') %}checked{% endif %} />
-              <span style="color: {{ category.color }}">
-                {{ category.name.capitalize() }}
-              </span>
-            </label></p>
-          {% endfor %}
+          <div class="category-list">
+            <p>
+              <label style="cursor: pointer; color: #007bff;" onclick="unselectAllCategories()">
+                <i class="material-icons" style="vertical-align: middle;">clear_all</i>
+                <span style="margin-left: 5px;">Unselect All</span>
+              </label>
+            </p>
+            {% for faculty in faculties %}
+              <p><label>
+                <input type="checkbox" name="faculty" value="{{ faculty.id }}"
+                  {% if faculty.id|string in request.args.getlist('faculty') %}checked{% endif %} />
+                  <span style="color: #000">{{ faculty.name }}</span>
+              </label></p>
+            {% endfor %}
+            {% for category in categories %}
+              <p><label>
+                <input type="checkbox" name="category" value="{{ category.id }}"
+                  {% if category.id|string in request.args.getlist('category') %}checked{% endif %} />
+                  <span style="color: {{ category.color }}">
+                  {{ category.name }}
+                </span>
+              </label></p>
+            {% endfor %}
+          </div>
         </form>
       </div>
     </div>
@@ -61,8 +70,10 @@
           <div class="marker-details">
             <h5 id="marker-name">Marker Name</h5>
             <p id="marker-description">Description goes here.</p>
+            <p id="marker-time-p"><strong>Business Hours:</strong> <span id="marker-time">Open and Close Times</span></p>
             <p><strong>Coordinates:</strong> <span id="marker-coordinates">00.00000, 00.00000</span></p>
             <p><strong>Campus:</strong> <span id="marker-campus">UWI</span></p>
+            <p><strong>Faculty:</strong> <span id="marker-faculty">No Faculty</span></p>
             <p><strong>Category:</strong> <span id="marker-category">General</span></p>
           </div>
         </div>
@@ -86,8 +97,10 @@
 
     // unselect all checkboxes
     function unselectAllCategories() {
-      const checkboxes = document.querySelectorAll('input[name="category"]');
-      checkboxes.forEach(cb => cb.checked = false);
+      const catCheckboxes = document.querySelectorAll('input[name="category"]');
+      const facCheckboxes = document.querySelectorAll('input[name="faculty"]');
+      catCheckboxes.forEach(cb => cb.checked = false);
+      facCheckboxes.forEach(cb => cb.checked = false);
     }
 
     // Sending data to the map.js file
@@ -114,29 +127,64 @@
   
     function handleCombinedSubmit(e) {
       e.preventDefault();
-  
-      const query = document.getElementById('search').value;
+    
+      const query = document.getElementById('search')?.value;
       const categories = Array.from(filterForm.querySelectorAll('input[name="category"]:checked'))
         .map(input => input.value);
-  
+      const faculties = Array.from(filterForm.querySelectorAll('input[name="faculty"]:checked'))
+        .map(input => input.value);
+    
       const params = new URLSearchParams();
-  
+    
       if (query) {
         params.set('query', query);
       }
-  
+    
       categories.forEach(cat => {
         params.append('category', cat);
       });
-  
-      const campusId = {{ selected_campus.id }};  // Get Campus ID
-  
+    
+      faculties.forEach(fac => {
+        params.append('faculty', fac);
+      });
+    
+      const campusId = {{ selected_campus.id }};
+    
       window.location.href = `/${campusId}?${params.toString()}`;
-    }
+    }    
   
     searchForm.addEventListener('submit', handleCombinedSubmit);
     filterForm.addEventListener('submit', handleCombinedSubmit);
   });
   
+</script>
+
+<!-- Mobile Transition to hide panels -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const filterPanel = document.querySelector('.floating-panel');
+    const navBar = document.querySelector('.floating-nav');
+    let hideTimeout;
+
+    function showPanel() {
+      filterPanel.classList.remove('hidden');
+      navBar.classList.remove('hidden');
+
+      // Reset hide timer
+      clearTimeout(hideTimeout);
+      hideTimeout = setTimeout(() => {
+        filterPanel.classList.add('hidden');
+        navBar.classList.add('hidden')
+      }, 4000); // 4 seconds of inactivity
+    }
+
+    if (window.map) { // Assuming your Leaflet map is in a global var called "map"
+      map.on('movestart', showPanel);
+      map.on('zoomstart', showPanel);
+    }
+
+    // Optional: show panel immediately when page loads
+    showPanel();
+  });
 </script>
 {% endblock %}

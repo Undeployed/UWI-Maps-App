@@ -1,6 +1,6 @@
 <!-- templates/edit.html -->
 {% extends "layout.html" %}
-{% block title %}UWI Map{% endblock %}
+{% block title %}UWI Maps: Edit{% endblock %}
 
 {% block head_links %}
 <!-- Leaflet CSS -->
@@ -75,6 +75,14 @@
                 {% endfor %}
             </select>
 
+            <label>Faculty:</label>
+            <select id="marker-form-faculty" name="faculty">
+                <option value="">No Faculty</option>
+                {% for faculty in faculties %}
+                    <option value="{{ faculty.id }}">{{ faculty.name }}</option>
+                {% endfor %}
+            </select>
+
             <label>Campus:</label>
             <div id="campus-name" class="bold mb-small">{{ selected_campus.name }}</div>
 
@@ -82,6 +90,23 @@
             <div id="coords-display" class="coords-text">
                 Latitude: <span id="coord-lat">—</span><br>
                 Longitude: <span id="coord-lng">—</span>
+            </div>
+
+            <!-- Office Hours Toggle -->
+            <div style="margin-top: 1rem; margin-bottom: 1rem; position: relative;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                    <input type="checkbox" id="has-business-hours" name="has-business-hours" onclick="MarkerManager.toggleOfficeHours()">
+                    Has Business Hours?
+                </label>
+            
+                <!-- Business Hours Fields -->
+                <div id="business-hours-section" style="position: relative; display: none; padding: 0.5rem; border: 1px solid #ccc; border-radius: 5px;">
+                    <label for="marker-open-time">Opening Time:</label>
+                    <input type="time" name="open_time" id="marker-open-time" style="display: block; margin-bottom: 0.5rem;">
+                
+                    <label for="marker-close-time">Closing Time:</label>
+                    <input type="time" name="close_time" id="marker-close-time" style="display: block;">
+                </div>
             </div>
 
             <div class="form-buttons">
@@ -98,7 +123,8 @@
             <button class="close-btn" onclick="closeInfoPanel()">×</button>
         </div>
         <div class="info-body">
-            <p><strong>Description:</strong> <span id="info-description"></span></p>
+            <p id="info-description-p"><strong>Description:</strong> <span id="info-description"></span></p>
+            <p><strong>Faculty:</strong> <span id="info-faculty"></span></p>
             <p><strong>Category:</strong> <span id="info-category"></span></p>
             <p><strong>Coordinates:</strong> <span id="info-coords"></span></p>
 

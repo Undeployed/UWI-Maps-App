@@ -17,9 +17,22 @@ def add_marker(campus_id):
     name = request.form.get('name')
     description = request.form.get('description')
     category = request.form.get('category')
+    faculty = request.form.get('faculty')
     image = request.form.get('image')
     
-    if create_marker(user_id=current_user.id, name=name, campus_id=campus_id, category_id=category, description=description, latitude=lat, longitude=lng, image=image):
+    open_time = request.form.get('open_time', None)
+    close_time = request.form.get('open_time', None)
+    
+    if create_marker(user_id=current_user.id, 
+                     name=name, campus_id=campus_id, 
+                     category_id=category,
+                     faculty_id=faculty,
+                     description=description, 
+                     latitude=lat, 
+                     longitude=lng, 
+                     image=image,
+                     open_time=open_time,
+                     close_time=close_time):
         flash("Added marker")
     else:
         flash("Unable to add marker")
